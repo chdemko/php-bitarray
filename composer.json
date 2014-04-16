@@ -1,0 +1,33 @@
+{
+	"name": "chdemko/bitarray",
+	"type": "library",
+	"description": "BitArray for PHP >= 5.4",
+	"keywords": ["bits","array","iterator"],
+	"homepage": "http://github.com/chdemko/php-bitarray",
+	"license": "CECILL-B",
+	"authors": [
+		{
+			"name": "Christophe Demko",
+			"email": "chdemko@gmail.com",
+			"homepage": "http://chdemko.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"require-dev": {
+		"phpdocumentor/phpdocumentor": "2.5.*@dev",
+		"satooshi/php-coveralls": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"chdemko\\BitArray\\": "src/BitArray"
+		}
+	},
+	"extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
