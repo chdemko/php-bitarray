@@ -2,8 +2,8 @@ PHP BitArray
 ======================
 [![Downloads](https://poser.pugx.org/chdemko/bitarray/d/total.png)](https://packagist.org/packages/chdemko/bitarray)
 [![Latest Stable Version](https://poser.pugx.org/chdemko/bitarray/version.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Latest Unstable Version](https://poser.pugx.org/chdemko/sorted-collections/v/unstable.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Code coverage](https://coveralls.io/repos/chdemko/php-sorted-collections/badge.png?branch=master)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
+[![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.png)](https://packagist.org/packages/chdemko/bitarray)
+[![Code coverage](https://coveralls.io/repos/chdemko/php-bitarray/badge.png?branch=master)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
 [![Build Status](https://secure.travis-ci.org/chdemko/php-bitarray.png)](http://travis-ci.org/chdemko/php-bitarray)
 [![License](https://poser.pugx.org/chdemko/bitarray/license.png)](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html)
 
