@@ -76,6 +76,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	public static function fromIterable($iterable)
 	{
 		$bits = new BitArray(count($iterable));
+		$offset = 0;
 		$ord = 0;
 
 		foreach ($iterable as $value)
