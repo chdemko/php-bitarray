@@ -28,14 +28,14 @@ class Iterator implements \Iterator
 	 *
 	 * @since   1.0.0
 	 */
-	protected $index;
+	private $index;
 
 	/**
 	 * @var     BitArray  bits
 	 *
 	 * @since   1.0.0
 	 */
-	protected $bits;
+	private $bits;
 
 	/**
 	 * Constructor
