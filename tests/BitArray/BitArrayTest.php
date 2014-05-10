@@ -53,12 +53,12 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function cases_fromIterable()
 	{
-		return array(
-			array([], ''),
-			array([true, false, true, false, true], '10101'),
-			array([true, false, true, false, true, false, false, true], '10101001'),
-			array([true, false, true, false, true, false, false, true, false], '101010010'),
-		);
+		return [
+			[[], ''],
+			[[true, false, true, false, true], '10101'],
+			[[true, false, true, false, true, false, false, true], '10101001'],
+			[[true, false, true, false, true, false, false, true, false], '101010010'],
+		];
 	}
 
 	/**
@@ -96,12 +96,12 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function cases_fromString()
 	{
-		return array(
-			array(''),
-			array('10101'),
-			array('10101001'),
-			array('101010010'),
-		);
+		return [
+			[''],
+			['10101'],
+			['10101001'],
+			['101010010'],
+		];
 	}
 
 	/**
@@ -187,23 +187,23 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function cases_offsetExists()
 	{
-		return array(
-			array('', 'a', false),
-			array('', -1, false),
-			array('', 0, false),
-			array('10101', 0, true),
-			array('10101', 4, true),
-			array('10101', 5, false),
-			array('10101001', 0, true),
-			array('10101001', 7, true),
-			array('10101001', 8, false),
-			array('10101001', 0, true),
-			array('10101001', 7, true),
-			array('10101001', 8, false),
-			array('101010010', 0, true),
-			array('101010010', 8, true),
-			array('101010010', 9, false),
-		);
+		return [
+			['', 'a', false],
+			['', -1, false],
+			['', 0, false],
+			['10101', 0, true],
+			['10101', 4, true],
+			['10101', 5, false],
+			['10101001', 0, true],
+			['10101001', 7, true],
+			['10101001', 8, false],
+			['10101001', 0, true],
+			['10101001', 7, true],
+			['10101001', 8, false],
+			['101010010', 0, true],
+			['101010010', 8, true],
+			['101010010', 9, false],
+		];
 	}
 
 	/**
@@ -240,23 +240,23 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function cases_offsetGet()
 	{
-		return array(
-			array('', 'a', null, true),
-			array('', -1, null, true),
-			array('', 0, null, true),
-			array('10101', 0, true, false),
-			array('10101', 4, true, false),
-			array('10101', 5, null, true),
-			array('10101001', 0, true, false),
-			array('10101001', 7, true, false),
-			array('10101001', 8, null, true),
-			array('10101001', 0, true, false),
-			array('10101001', 7, true, false),
-			array('10101001', 8, null, true),
-			array('101010010', 0, true, false),
-			array('101010010', 8, false, false),
-			array('101010010', 9, null, true),
-		);
+		return [
+			['', 'a', null, true],
+			['', -1, null, true],
+			['', 0, null, true],
+			['10101', 0, true, false],
+			['10101', 4, true, false],
+			['10101', 5, null, true],
+			['10101001', 0, true, false],
+			['10101001', 7, true, false],
+			['10101001', 8, null, true],
+			['10101001', 0, true, false],
+			['10101001', 7, true, false],
+			['10101001', 8, null, true],
+			['101010010', 0, true, false],
+			['101010010', 8, false, false],
+			['101010010', 9, null, true],
+		];
 	}
 
 	/**
@@ -299,23 +299,23 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function cases_offsetSet()
 	{
-		return array(
-			array('', 'a', null, null, true),
-			array('', -1, null, null, true),
-			array('', 0, null, null, true),
-			array('10101', 0, false, false, false),
-			array('10101', 4, false, false, false),
-			array('10101', 5, null, null, true),
-			array('10101001', 0, false, false, false),
-			array('10101001', 7, false, false, false),
-			array('10101001', 8, null, null, true),
-			array('10101001', 0, false, false, false),
-			array('10101001', 7, false, false, false),
-			array('10101001', 8, null, null, true),
-			array('101010010', 0, false, false, false),
-			array('101010010', 8, true, true, false),
-			array('101010010', 9, null, null, true),
-		);
+		return [
+			['', 'a', null, null, true],
+			['', -1, null, null, true],
+			['', 0, null, null, true],
+			['10101', 0, false, false, false],
+			['10101', 4, false, false, false],
+			['10101', 5, null, null, true],
+			['10101001', 0, false, false, false],
+			['10101001', 7, false, false, false],
+			['10101001', 8, null, null, true],
+			['10101001', 0, false, false, false],
+			['10101001', 7, false, false, false],
+			['10101001', 8, null, null, true],
+			['101010010', 0, false, false, false],
+			['101010010', 8, true, true, false],
+			['101010010', 9, null, null, true],
+		];
 	}
 
 	/**
