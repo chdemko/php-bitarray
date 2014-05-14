@@ -65,21 +65,21 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	}
 
 	/**
-	 * Create a new BitArray from an iterable
+	 * Create a new BitArray from a traversable
 	 *
-	 * @param   iterable  $iterable  An iterable and countable
+	 * @param   \Traversable  $traversable  A traversable and countable
 	 *
 	 * @return  BitArray  A new BitArray
 	 *
 	 * @since   1.0.0
 	 */
-	public static function fromIterable($iterable)
+	public static function fromTraversable($traversable)
 	{
-		$bits = new BitArray(count($iterable));
+		$bits = new BitArray(count($traversable));
 		$offset = 0;
 		$ord = 0;
 
-		foreach ($iterable as $value)
+		foreach ($traversable as $value)
 		{
 			if ($value)
 			{
@@ -150,7 +150,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 */
 	public static function fromJson($json)
 	{
-		return self::fromIterable(json_decode($json));
+		return self::fromTraversable(json_decode($json));
 	}
 
 	/**

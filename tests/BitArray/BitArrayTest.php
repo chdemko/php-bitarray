@@ -45,13 +45,13 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_fromIterable
+	 * Data provider for test_fromTraversable
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_fromIterable()
+	public function cases_fromTraversable()
 	{
 		return [
 			[[], ''],
@@ -62,24 +62,24 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Tests  BitArray::fromIterable
+	 * Tests  BitArray::fromTraversable
 	 *
-	 * @param   array   $iterable  Initial values
-	 * @param   string  $expected  Expected string representation
+	 * @param   array   $traversable  Initial values
+	 * @param   string  $expected     Expected string representation
 	 *
 	 * @return  void
 	 *
-	 * @covers  chdemko\BitArray\BitArray::fromIterable
+	 * @covers  chdemko\BitArray\BitArray::fromTraversable
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_fromIterable
+	 * @dataProvider  cases_fromTraversable
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_fromIterable($iterable, $expected)
+	public function test_fromTraversable($traversable, $expected)
 	{
-		$bits = BitArray::fromIterable($iterable);
+		$bits = BitArray::fromTraversable($traversable);
 
 		$this->assertEquals(
 			$expected,
