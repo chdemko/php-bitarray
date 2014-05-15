@@ -186,7 +186,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 *
 	 * @return  boolean  The truth value
 	 *
-	 * @throw   \InvalidArgumentException  Argument index must be an positive integer lesser than the size
+	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
 	 *
 	 * @since   1.0.0
 	 */
@@ -198,7 +198,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		}
 		else
 		{
-			throw new \InvalidArgumentException('Argument offset must be a positive integer lesser than the size');
+			throw new \OutOfRangeException('Argument offset must be a positive integer lesser than the size');
 		}
 	}
 
@@ -210,7 +210,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 *
 	 * @return  void
 	 *
-	 * @throw   \InvalidArgumentException  Argument index must be an positive integer lesser than the size
+	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
 	 *
 	 * @since   1.0.0
 	 */
@@ -231,7 +231,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		}
 		else
 		{
-			throw new \InvalidArgumentException('Argument index must be a positive integer lesser than the size');
+			throw new \OutOfRangeException('Argument index must be a positive integer lesser than the size');
 		}
 	}
 

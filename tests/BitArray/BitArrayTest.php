@@ -281,7 +281,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 
 		if ($exception)
 		{
-			$this->setExpectedException('InvalidArgumentException');
+			$this->setExpectedException('OutOfRangeException');
 		}
 
 		$this->assertEquals(
@@ -341,7 +341,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 
 		if ($exception)
 		{
-			$this->setExpectedException('InvalidArgumentException');
+			$this->setExpectedException('OutOfRangeException');
 		}
 
 		$bits[$offset] = $value;
