@@ -23,6 +23,9 @@ namespace chdemko\BitArray;
  */
 class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
 {
+	/**
+	 * @var  integer[]  Number of bits for each value between 0 and 255
+	 */
 	private static $count = [
 		0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
 		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
