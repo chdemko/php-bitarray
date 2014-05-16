@@ -23,6 +23,25 @@ namespace chdemko\BitArray;
  */
 class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
 {
+	private static $count = [
+		0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8
+	];
+
 	/**
 	 * @var     string  Underlying data
 	 *
@@ -48,6 +67,215 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	{
 		$this->size = (int) $size;
 		$this->data = str_repeat("\0", ceil($this->size / 8));
+	}
+
+	/**
+	 * Clone a bitarray
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
+	public function __clone()
+	{
+		$this->data = str_repeat($this->data, 1);
+	}
+
+	/**
+	 * Convert the object to a string
+	 *
+	 * @return  string  String representation of this object
+	 *
+	 * @since   1.0.0
+	 */
+	public function __toString()
+	{
+		$string = str_repeat('0', $this->size);
+
+		for ($offset = 0; $offset < $this->size; $offset++)
+		{
+			if (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8))
+			{
+				$string[$offset] = '1';
+			}
+		}
+
+		return $string;
+	}
+
+	/**
+	 * Magic get method
+	 *
+	 * @param   string  $property  The property
+	 *
+	 * @throws  \RuntimeException  If the property does not exist
+	 *
+	 * @return  mixed  The value associated to the property
+	 *
+	 * @since   1.0.0
+	 */
+	public function __get($property)
+	{
+		switch ($property)
+		{
+			case 'size':
+				return $this->size;
+			break;
+			case 'count':
+				return $this->count();
+			break;
+			default:
+				throw new \RuntimeException('Undefined property');
+			break;
+		}
+	}
+
+	/**
+	 * Test the existence of an index
+	 *
+	 * @param   integer  $offset  The offset
+	 *
+	 * @return  boolean  The truth value
+	 *
+	 * @since   1.0.0
+	 */
+	public function offsetExists($offset)
+	{
+		return is_int($offset) && $offset >= 0 && $offset < $this->size;
+	}
+
+	/**
+	 * Get the truth value for an index
+	 *
+	 * @param   integer  $offset  The offset
+	 *
+	 * @return  boolean  The truth value
+	 *
+	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
+	 *
+	 * @since   1.0.0
+	 */
+	public function offsetGet($offset)
+	{
+		if ($this->offsetExists($offset))
+		{
+			return (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
+		}
+		else
+		{
+			throw new \OutOfRangeException('Argument offset must be a positive integer lesser than the size');
+		}
+	}
+
+	/**
+	 * Set the truth value for an index
+	 *
+	 * @param   integer  $offset  The offset
+	 * @param   boolean  $value   The truth value
+	 *
+	 * @return  void
+	 *
+	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
+	 *
+	 * @since   1.0.0
+	 */
+	public function offsetSet($offset, $value)
+	{
+		if ($this->offsetExists($offset))
+		{
+			$index = (int) ($offset / 8);
+
+			if ($value)
+			{
+				$this->data[$index] = chr(ord($this->data[$index]) | (1 << $offset % 8));
+			}
+			else
+			{
+				$this->data[$index] = chr(ord($this->data[$index]) & ~(1 << $offset % 8));
+			}
+		}
+		else
+		{
+			throw new \OutOfRangeException('Argument index must be a positive integer lesser than the size');
+		}
+	}
+
+	/**
+	 * Unset the existence of an index
+	 *
+	 * @param   integer  $offset  The index
+	 *
+	 * @return  void
+	 *
+	 * @throw   \RuntimeException  Values cannot be unset
+	 *
+	 * @since   1.0.0
+	 */
+	public function offsetUnset($offset)
+	{
+		throw new \RuntimeException('Values cannot be unset');
+	}
+
+	/**
+	 * Return the number of true bits
+	 *
+	 * @return  integer  The number of true bits
+	 *
+	 * @since   1.0.0
+	 */
+	public function count()
+	{
+		$count = 0;
+
+		for ($i = 0, $length = strlen($this->data); $i < $length; $i++)
+		{
+			$count += static::$count[ord($this->data[$i])];
+		}
+
+		return $count;
+	}
+
+	/**
+	 * Serialize the object
+	 *
+	 * @return  array  Array of values
+	 *
+	 * @since   1.0.0
+	 */
+	public function jsonSerialize()
+	{
+		$array = [];
+
+		for ($offset = 0; $offset < $this->size; $offset++)
+		{
+			$array[] = (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
+		}
+
+		return $array;
+	}
+
+	/**
+	 * Get an iterator
+	 *
+	 * @return  Iterator  Iterator
+	 *
+	 * @since   1.0.0
+	 */
+	public function getIterator()
+	{
+		return new Iterator($this);
+	}
+
+	/**
+	 * Return the size
+	 *
+	 * @return  integer  The size
+	 *
+	 * @since   1.0.0
+	 */
+	public function size()
+	{
+		return $this->size;
 	}
 
 	/**
@@ -151,169 +379,6 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	public static function fromJson($json)
 	{
 		return self::fromTraversable(json_decode($json));
-	}
-
-	/**
-	 * Clone a bitarray
-	 *
-	 * @return  void
-	 *
-	 * @since   1.0.0
-	 */
-	public function __clone()
-	{
-		$this->data = str_repeat($this->data, 1);
-	}
-
-	/**
-	 * Test the existence of an index
-	 *
-	 * @param   integer  $offset  The offset
-	 *
-	 * @return  boolean  The truth value
-	 *
-	 * @since   1.0.0
-	 */
-	public function offsetExists($offset)
-	{
-		return is_int($offset) && $offset >= 0 && $offset < $this->size;
-	}
-
-	/**
-	 * Get the truth value for an index
-	 *
-	 * @param   integer  $offset  The offset
-	 *
-	 * @return  boolean  The truth value
-	 *
-	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
-	 *
-	 * @since   1.0.0
-	 */
-	public function offsetGet($offset)
-	{
-		if ($this->offsetExists($offset))
-		{
-			return (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
-		}
-		else
-		{
-			throw new \OutOfRangeException('Argument offset must be a positive integer lesser than the size');
-		}
-	}
-
-	/**
-	 * Set the truth value for an index
-	 *
-	 * @param   integer  $offset  The offset
-	 * @param   boolean  $value   The truth value
-	 *
-	 * @return  void
-	 *
-	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
-	 *
-	 * @since   1.0.0
-	 */
-	public function offsetSet($offset, $value)
-	{
-		if ($this->offsetExists($offset))
-		{
-			$index = (int) ($offset / 8);
-
-			if ($value)
-			{
-				$this->data[$index] = chr(ord($this->data[$index]) | (1 << $offset % 8));
-			}
-			else
-			{
-				$this->data[$index] = chr(ord($this->data[$index]) & ~(1 << $offset % 8));
-			}
-		}
-		else
-		{
-			throw new \OutOfRangeException('Argument index must be a positive integer lesser than the size');
-		}
-	}
-
-	/**
-	 * Unset the existence of an index
-	 *
-	 * @param   integer  $offset  The index
-	 *
-	 * @return  void
-	 *
-	 * @throw   \RuntimeException  Values cannot be unset
-	 *
-	 * @since   1.0.0
-	 */
-	public function offsetUnset($offset)
-	{
-		throw new \RuntimeException('Values cannot be unset');
-	}
-
-	/**
-	 * Return the size
-	 *
-	 * @return  integer  The size
-	 *
-	 * @since   1.0.0
-	 */
-	public function count()
-	{
-		return $this->size;
-	}
-
-	/**
-	 * Serialize the object
-	 *
-	 * @return  array  Array of values
-	 *
-	 * @since   1.0.0
-	 */
-	public function jsonSerialize()
-	{
-		$array = [];
-
-		for ($offset = 0; $offset < $this->size; $offset++)
-		{
-			$array[] = (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
-		}
-
-		return $array;
-	}
-
-	/**
-	 * Convert the object to a string
-	 *
-	 * @return  string  String representation of this object
-	 *
-	 * @since   1.0.0
-	 */
-	public function __toString()
-	{
-		$string = str_repeat('0', $this->size);
-
-		for ($offset = 0; $offset < $this->size; $offset++)
-		{
-			if (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8))
-			{
-				$string[$offset] = '1';
-			}
-		}
-
-		return $string;
-	}
-
-	/**
-	 * Get an iterator
-	 *
-	 * @return  Iterator  Iterator
-	 *
-	 * @since   1.0.0
-	 */
-	public function getIterator()
-	{
-		return new Iterator($this);
 	}
 
 	/**

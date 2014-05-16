@@ -24,133 +24,6 @@ namespace chdemko\BitArray;
 class BitArrayTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * Tests  BitArray::fromInteger
-	 *
-	 * @return  void
-	 *
-	 * @covers  chdemko\BitArray\BitArray::fromInteger
-	 * @covers  chdemko\BitArray\BitArray::__construct
-	 * @covers  chdemko\BitArray\BitArray::__toString
-	 *
-	 * @since   1.0.0
-	 */
-	public function test_fromInteger()
-	{
-		$bits = BitArray::fromInteger(10);
-
-		$this->assertEquals(
-			'0000000000',
-			(string) $bits
-		);
-	}
-
-	/**
-	 * Data provider for test_fromTraversable
-	 *
-	 * @return  array
-	 *
-	 * @since   1.0.0
-	 */
-	public function cases_fromTraversable()
-	{
-		return [
-			[[], ''],
-			[[true, false, true, false, true], '10101'],
-			[[true, false, true, false, true, false, false, true], '10101001'],
-			[[true, false, true, false, true, false, false, true, false], '101010010'],
-		];
-	}
-
-	/**
-	 * Tests  BitArray::fromTraversable
-	 *
-	 * @param   array   $traversable  Initial values
-	 * @param   string  $expected     Expected string representation
-	 *
-	 * @return  void
-	 *
-	 * @covers  chdemko\BitArray\BitArray::fromTraversable
-	 * @covers  chdemko\BitArray\BitArray::__construct
-	 * @covers  chdemko\BitArray\BitArray::__toString
-	 *
-	 * @dataProvider  cases_fromTraversable
-	 *
-	 * @since   1.0.0
-	 */
-	public function test_fromTraversable($traversable, $expected)
-	{
-		$bits = BitArray::fromTraversable($traversable);
-
-		$this->assertEquals(
-			$expected,
-			(string) $bits
-		);
-	}
-
-	/**
-	 * Data provider for test_fromString
-	 *
-	 * @return  array
-	 *
-	 * @since   1.0.0
-	 */
-	public function cases_fromString()
-	{
-		return [
-			[''],
-			['10101'],
-			['10101001'],
-			['101010010'],
-		];
-	}
-
-	/**
-	 * Tests  BitArray::fromString
-	 *
-	 * @param   array  $string  Initial values
-	 *
-	 * @return  void
-	 *
-	 * @covers  chdemko\BitArray\BitArray::fromString
-	 * @covers  chdemko\BitArray\BitArray::__construct
-	 * @covers  chdemko\BitArray\BitArray::__toString
-	 *
-	 * @dataProvider  cases_fromString
-	 *
-	 * @since   1.0.0
-	 */
-	public function test_fromString($string)
-	{
-		$bits = BitArray::fromString($string);
-
-		$this->assertEquals(
-			$string,
-			(string) $bits
-		);
-	}
-
-	/**
-	 * Tests  BitArray::fromJson
-	 *
-	 * @return  void
-	 *
-	 * @covers  chdemko\BitArray\BitArray::fromJson
-	 * @covers  chdemko\BitArray\BitArray::__construct
-	 * @covers  chdemko\BitArray\BitArray::__toString
-	 *
-	 * @since   1.0.0
-	 */
-	public function test_fromJson()
-	{
-		$bits = BitArray::fromJson('[true,false,false,true]');
-
-		$this->assertEquals(
-			'1001',
-			(string) $bits
-		);
-	}
-
-	/**
 	 * Tests  BitArray::__clone
 	 *
 	 * @return  void
@@ -380,12 +253,37 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function test_count()
 	{
-		$bits = BitArray::fromString('1001');
+		$bits = BitArray::fromString('1001000011001100');
 
 		$this->assertEquals(
-			4,
-			count($bits)
+			6,
+			$bits->count
 		);
+	}
+
+	/**
+	 * Tests  BitArray::__get
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::__get
+	 *
+	 * @since   1.0.0
+	 */
+	public function test___get()
+	{
+		$bits = BitArray::fromString('1001000011001100');
+
+		$this->assertEquals(
+			6,
+			$bits->count
+		);
+		$this->assertEquals(
+			16,
+			$bits->size
+		);
+		$this->setExpectedException('RuntimeException');
+		$unexisting = $bits->unexisting;
 	}
 
 	/**
@@ -433,6 +331,152 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 				$value
 			);
 		}
+	}
+
+	/**
+	 * Tests  BitArray::size
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::size
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_size()
+	{
+		$bits = BitArray::fromString('1001');
+
+		$this->assertEquals(
+			4,
+			$bits->size()
+		);
+	}
+
+	/**
+	 * Tests  BitArray::fromInteger
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromInteger
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_fromInteger()
+	{
+		$bits = BitArray::fromInteger(10);
+
+		$this->assertEquals(
+			'0000000000',
+			(string) $bits
+		);
+	}
+
+	/**
+	 * Data provider for test_fromTraversable
+	 *
+	 * @return  array
+	 *
+	 * @since   1.0.0
+	 */
+	public function cases_fromTraversable()
+	{
+		return [
+			[[], ''],
+			[[true, false, true, false, true], '10101'],
+			[[true, false, true, false, true, false, false, true], '10101001'],
+			[[true, false, true, false, true, false, false, true, false], '101010010'],
+		];
+	}
+
+	/**
+	 * Tests  BitArray::fromTraversable
+	 *
+	 * @param   array   $traversable  Initial values
+	 * @param   string  $expected     Expected string representation
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromTraversable
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @dataProvider  cases_fromTraversable
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_fromTraversable($traversable, $expected)
+	{
+		$bits = BitArray::fromTraversable($traversable);
+
+		$this->assertEquals(
+			$expected,
+			(string) $bits
+		);
+	}
+
+	/**
+	 * Data provider for test_fromString
+	 *
+	 * @return  array
+	 *
+	 * @since   1.0.0
+	 */
+	public function cases_fromString()
+	{
+		return [
+			[''],
+			['10101'],
+			['10101001'],
+			['101010010'],
+		];
+	}
+
+	/**
+	 * Tests  BitArray::fromString
+	 *
+	 * @param   array  $string  Initial values
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromString
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @dataProvider  cases_fromString
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_fromString($string)
+	{
+		$bits = BitArray::fromString($string);
+
+		$this->assertEquals(
+			$string,
+			(string) $bits
+		);
+	}
+
+	/**
+	 * Tests  BitArray::fromJson
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromJson
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_fromJson()
+	{
+		$bits = BitArray::fromJson('[true,false,false,true]');
+
+		$this->assertEquals(
+			'1001',
+			(string) $bits
+		);
 	}
 
 	/**
