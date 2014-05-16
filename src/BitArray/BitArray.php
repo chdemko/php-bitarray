@@ -229,7 +229,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 
 		for ($i = 0, $length = strlen($this->data); $i < $length; $i++)
 		{
-			$count += static::$count[ord($this->data[$i])];
+			$count += self::$count[ord($this->data[$i])];
 		}
 
 		return $count;
