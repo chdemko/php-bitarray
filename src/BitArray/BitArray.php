@@ -48,16 +48,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	/**
 	 * @var  integer[]  Mask for restricting complements
 	 */
-	private static $restrict = [
-		(1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7),
-		(1 << 0),
-		(1 << 0) | (1 << 1),
-		(1 << 0) | (1 << 1) | (1 << 2),
-		(1 << 0) | (1 << 1) | (1 << 2) | (1 << 3),
-		(1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4),
-		(1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5),
-		(1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6),
-	];
+	private static $restrict = [255, 1, 3, 7, 15, 31, 63, 127];
 
 	/**
 	 * @var     string  Underlying data
