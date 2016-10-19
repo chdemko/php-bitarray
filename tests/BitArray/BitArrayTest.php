@@ -496,6 +496,14 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 			'01100',
 			(string) $bits->applyComplement()
 		);
+		$this->assertEquals(
+			2,
+			count($bits)
+		);
+		$this->assertEquals(
+			5,
+			$bits->size
+		);
 	}
 
 	/**

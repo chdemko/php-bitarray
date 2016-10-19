@@ -107,6 +107,6 @@ class Iterator implements \Iterator
 	 */
 	public function valid()
 	{
-		return $this->index < count($this->bits);
+		return $this->index < $this->bits->size;
 	}
 }

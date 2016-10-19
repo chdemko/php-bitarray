@@ -46,6 +46,20 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	];
 
 	/**
+	 * @var  integer[]  Mask for restricting complements
+	 */
+	private static $restrict = [
+		1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6 | 1 << 7,
+		1 << 0,
+		1 << 0 | 1 << 1,
+		1 << 0 | 1 << 1 | 1 << 2,
+		1 << 0 | 1 << 1 | 1 << 2 | 1 << 3,
+		1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4,
+		1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5,
+		1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6,
+	];
+
+	/**
 	 * @var     string  Underlying data
 	 *
 	 * @since   1.0.0
@@ -123,13 +137,10 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		{
 			case 'size':
 				return $this->size;
-			break;
 			case 'count':
 				return $this->count();
-			break;
 			default:
 				throw new \RuntimeException('Undefined property');
-			break;
 		}
 	}
 
@@ -398,6 +409,12 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		for ($i = 0; $i < $length; $i++)
 		{
 			$this->data[$i] = chr(~ ord($this->data[$i]));
+		}
+
+		// Remove useless bits
+		if ($length > 0)
+		{
+			$this->data[$length - 1] = chr(ord($this->data[$length - 1]) & self::$restrict[$this->size % 8]);
 		}
 
 		return $this;

@@ -17,9 +17,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use chdemko\BitArray\BitArray;
 
-$bits = BitArray::fromString('10010');
-
 // Print 10010
+$bits = BitArray::fromString('10010');
 echo $bits . PHP_EOL;
 
 // Print 01101
@@ -27,7 +26,7 @@ $bits->applyComplement();
 echo $bits . PHP_EOL;
 
 // Print 11100
-$bits->applyXor(BitArray::fromIterable([true, false, false, false, true]));
+$bits->applyXor(BitArray::fromTraversable([true, false, false, false, true]));
 echo $bits . PHP_EOL;
 
 // Print 11101
