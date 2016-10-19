@@ -18,6 +18,9 @@ namespace chdemko\BitArray;
  * Array of bits
  *
  * @package  BitArray
+ *
+ * @property-read  integer    $count  The number of bits set to true
+ * @property-read  integer    $size   The number of bits
  * 
  * @since    1.0.0
  */
