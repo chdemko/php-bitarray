@@ -7,7 +7,7 @@ PHP BitArray
 [![Latest Stable Version](https://img.shields.io/packagist/v/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
 [![Packagist](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
 [![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.svg)](https://packagist.org/packages/chdemko/bitarray)
-[![License](https://poser.pugx.org/chdemko/bitarray/license.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![License](https://poser.pugx.org/chdemko/bitarray/license.svg)](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html)
 
 BitArray for PHP.
 
