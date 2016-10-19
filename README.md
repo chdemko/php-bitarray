@@ -1,11 +1,13 @@
 PHP BitArray
 ======================
-[![Downloads](https://poser.pugx.org/chdemko/bitarray/d/total.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Latest Stable Version](https://poser.pugx.org/chdemko/bitarray/version.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.png)](https://packagist.org/packages/chdemko/bitarray)
-[![Code coverage](https://coveralls.io/repos/chdemko/php-bitarray/badge.png?branch=master)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
-[![Build Status](https://secure.travis-ci.org/chdemko/php-bitarray.png)](http://travis-ci.org/chdemko/php-bitarray)
-[![License](https://poser.pugx.org/chdemko/bitarray/license.png)](http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html)
+[![Travis](https://img.shields.io/travis/chdemko/php-bitarray.svg)](http://travis-ci.org/chdemko/php-bitarray)
+[![Coveralls](https://img.shields.io/coveralls/chdemko/php-bitarray.svg)](https://coveralls.io/r/chdemko/php-bitarray?branch=master)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/chdemko/php-bitarray.svg)](https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=master)
+[![Dependency Status](https://www.versioneye.com/package/php--chdemko--bitarray/badge.svg)](https://www.versioneye.com/package/php--chdemko--bitarray)
+[![Latest Stable Version](https://img.shields.io/packagist/v/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Packagist](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![License](https://poser.pugx.org/chdemko/bitarray/license.svg)](https://packagist.org/packages/chdemko/bitarray)
 
 BitArray for PHP.
 

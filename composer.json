@@ -1,7 +1,7 @@
 {
 	"name": "chdemko/bitarray",
 	"type": "library",
-	"description": "BitArray for PHP >= 5.4",
+	"description": "BitArray for PHP >= 5.5",
 	"keywords": ["bits","array","iterator"],
 	"homepage": "http://github.com/chdemko/php-bitarray",
 	"license": "CECILL-B",
@@ -14,10 +14,10 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4.0"
+		"php": ">=5.5.0"
 	},
 	"require-dev": {
-		"phpdocumentor/phpdocumentor": "2.5.*@dev",
+		"phpdocumentor/phpdocumentor": "2.9.*@dev",
 		"satooshi/php-coveralls": "dev-master"
 	},
 	"autoload": {

@@ -9,9 +9,10 @@ before_install:
 
 before_script:
   - sudo apt-get install graphviz
-  - composer update --dev
-  - pyrus install -f pear/PHP_CodeSniffer-1.5.2
-  - git clone https://github.com/joomla/coding-standards.git `pyrus get php_dir | tail -1`/PHP/CodeSniffer/Standards/Joomla
+  - sudo apt-get install php5-xdebug	
+  - composer update
+  - pear install PHP_CodeSniffer-1.5.6
+  - git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
   - phpenv rehash
 
 script:
@@ -27,4 +28,4 @@ after_success:
 
 env:
   global:
-    - secure: "RT1zLx1CASx0obYvrmwwMc4Ro3aJx5FjB/X4pH04YQQDMjXgLG+Yu/yCZHd1v+TUJzRUstxNJdOJyIMu0inKwdLxbUayz0hy6nWGDeYTddu8bDHBa7RRgOJe6io+oFkjq196kjFPkfvvWz8QSqylbey3VJq0Eiv5n/ZG892vTa0="
+    - secure: "dYLK4jNa/gAUiVTwxBE0wPVRK6EP1YgGRSOR9J/6r42vGgj6PniQpx6doOGdbagBZDa5pdiOSvJ33ZAThuvOVZZBoPdrHmqzioxYlfv6dCOi/Ytj2Lb9nyw+alc5yBHtlGBH7UDrn4dT7zkDssd5M4S/8s1JmqAb0Z1p1/qpV/o="
