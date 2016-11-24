@@ -40,7 +40,7 @@ and run
 $ composer install
 ~~~
 
-Create a `test.php` file containg
+Create a `test.php` file containing
 ~~~php
 <?php
 require __DIR__ . '/vendor/autoload.php';
