@@ -47,7 +47,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use chdemko\BitArray\BitArray;
 
-$bits = BitArray::fromIterable([true,false,false,true]);
+$bits = BitArray::fromTraversable([true,false,false,true]);
 echo $bits . PHP_EOL;
 ~~~
 This should print
