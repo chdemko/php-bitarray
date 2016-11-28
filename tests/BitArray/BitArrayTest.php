@@ -436,7 +436,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Tests  BitArray::fromString
 	 *
-	 * @param   array  $string  Initial values
+	 * @param   string  $string  bits
 	 *
 	 * @return  void
 	 *
@@ -476,6 +476,107 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			'1001',
 			(string) $bits
+		);
+	}
+
+	/**
+	 * Data provider for test_fromSlice
+	 *
+	 * @return  array
+	 *
+	 * @since   1.0.0
+	 */
+	public function cases_fromSlice()
+	{
+		return [
+			['', 0, null, ''],
+			['11010110', 0, null, '11010110'],
+			['11010110', 1, null, '1010110'],
+			['11010110', 8, null, ''],
+			['11010110', 9, null, ''],
+			['11010110', -7, null, '1010110'],
+			['11010110', -8, null, '11010110'],
+			['11010110', -9, null, '11010110'],
+
+			['', 0, 4, ''],
+			['11010110', 0, 4, '1101'],
+			['11010110', 1, 4, '1010'],
+			['11010110', 8, 4, ''],
+			['11010110', 9, 4, ''],
+			['11010110', -7, 4, '1010'],
+			['11010110', -8, 4, '1101'],
+			['11010110', -9, 4, '1101'],
+
+			['', 0, 8, ''],
+			['11010110', 0, 8, '11010110'],
+			['11010110', 1, 8, '1010110'],
+			['11010110', 8, 8, ''],
+			['11010110', 9, 8, ''],
+			['11010110', -7, 8, '1010110'],
+			['11010110', -8, 8, '11010110'],
+			['11010110', -9, 8, '11010110'],
+
+			['', 0, 9, ''],
+			['11010110', 0, 9, '11010110'],
+			['11010110', 1, 9, '1010110'],
+			['11010110', 8, 9, ''],
+			['11010110', 9, 9, ''],
+			['11010110', -7, 9, '1010110'],
+			['11010110', -8, 9, '11010110'],
+			['11010110', -9, 9, '11010110'],
+
+			['', 0, -4, ''],
+			['11010110', 0, -4, '1101'],
+			['11010110', 1, -4, '101'],
+			['11010110', 8, -4, ''],
+			['11010110', 9, -4, ''],
+			['11010110', -7, -4, '101'],
+			['11010110', -8, -4, '1101'],
+			['11010110', -9, -4, '1101'],
+
+			['', 0, -8, ''],
+			['11010110', 0, -8, ''],
+			['11010110', 1, -8, ''],
+			['11010110', 8, -8, ''],
+			['11010110', 9, -8, ''],
+			['11010110', -7, -8, ''],
+			['11010110', -8, -8, ''],
+			['11010110', -9, -8, ''],
+
+			['', 0, -9, ''],
+			['11010110', 0, -9, ''],
+			['11010110', 1, -9, ''],
+			['11010110', 8, -9, ''],
+			['11010110', 9, -9, ''],
+			['11010110', -7, -9, ''],
+			['11010110', -8, -9, ''],
+			['11010110', -9, -9, ''],
+		];
+	}
+
+	/**
+	 * Tests  BitArray::fromSlice
+	 *
+	 * @param   string   $string  Initial values
+	 * @param   integer  $offset  Slice offset
+	 * @param   integer  $size    Slice size
+	 * @param   string   $result  Expected result
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromSlice
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @dataProvider  cases_fromSlice
+	 *
+	 * @since   1.0.0
+	 */
+	public function test_fromSlice($string, $offset, $size, $result)
+	{
+		$this->assertEquals(
+			$result,
+			(string) BitArray::fromSlice(BitArray::fromString($string), $offset, $size)
 		);
 	}
 

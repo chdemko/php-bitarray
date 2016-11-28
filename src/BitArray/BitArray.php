@@ -390,6 +390,73 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	}
 
 	/**
+	 * Create a new BitArray using a slice
+	 *
+	 * @param   BitArray  $bits    A bitarray to get the slice
+	 * @param   int       $offset  If offset is non-negative, the slice will start at that offset in the bits argument.
+	 *                             If offset is negative, the slice will start that far from the end of the bits argument.
+	 * @param   mixed     $size    If size is given and is positive, then the slice will have up to that many elements in it.
+	 *                             If the bits argument is shorter than the size, then only the available elements will be present.
+	 *                             If size is given and is negative then the slice will stop that many elements from the end of the bits argument.
+	 *                             If it is omitted, then the slice will have everything from offset up until the end of the bits argument.
+	 *
+	 * @return  BitArray  A new BitArray
+	 *
+	 * @since   1.0.0
+	 */
+	public static function fromSlice(BitArray $bits, $offset = 0, $size = null)
+	{
+		$offset = (int) $offset;
+
+		if ($offset < 0)
+		{
+			// Start from the end
+			$offset = $bits->size + $offset;
+
+			if ($offset < 0)
+			{
+				$offset = 0;
+			}
+		}
+		elseif ($offset > $bits->size)
+		{
+			$offset = $bits->size;
+		}
+
+		if ($size === null)
+		{
+			$size = $bits->size - $offset;
+		}
+		else
+		{
+			$size = (int) $size;
+
+			if ($size < 0)
+			{
+				$size = $bits->size + $size - $offset;
+
+				if ($size < 0)
+				{
+					$size = 0;
+				}
+			}
+			elseif ($size > $bits->size - $offset)
+			{
+				$size = $bits->size - $offset;
+			}
+		}
+
+		$slice = new BitArray($size);
+
+		for ($i = 0; $i < $size; $i++)
+		{
+			$slice[$i] = $bits[$i + $offset];
+		}
+
+		return $slice;
+	}
+
+	/**
 	 * Complement the bit array
 	 *
 	 * @return  BitArray  This object for chaining
