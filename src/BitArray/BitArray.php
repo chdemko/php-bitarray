@@ -244,13 +244,13 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	}
 
 	/**
-	 * Serialize the object
+	 * Transform the object to an array
 	 *
 	 * @return  array  Array of values
 	 *
-	 * @since   1.0.0
+	 * @since   1.1.0
 	 */
-	public function jsonSerialize()
+	public function toArray()
 	{
 		$array = [];
 
@@ -260,6 +260,18 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		}
 
 		return $array;
+	}
+
+	/**
+	 * Serialize the object
+	 *
+	 * @return  array  Array of values
+	 *
+	 * @since   1.0.0
+	 */
+	public function jsonSerialize()
+	{
+		return $this->toArray();
 	}
 
 	/**
@@ -402,7 +414,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 *
 	 * @return  BitArray  A new BitArray
 	 *
-	 * @since   1.0.0
+	 * @since   1.1.0
 	 */
 	public static function fromSlice(BitArray $bits, $offset = 0, $size = null)
 	{
@@ -454,6 +466,34 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		}
 
 		return $slice;
+	}
+
+	/**
+	 * Create a new BitArray using the concat operation
+	 *
+	 * @param   BitArray  $bits1  A bitarray
+	 * @param   BitArray  $bits2  A bitarray
+	 *
+	 * @return  BitArray  A new BitArray
+	 *
+	 * @since   1.1.0
+	 */
+	public static function fromConcat(BitArray $bits1, BitArray $bits2)
+	{
+		$size = $bits1->size + $bits2->size;
+		$concat = new BitArray($size);
+
+		for ($i = 0; $i < $bits1->size; $i++)
+		{
+			$concat[$i] = $bits1[$i];
+		}
+
+		for ($i = 0; $i < $bits2->size; $i++)
+		{
+			$concat[$i + $bits1->size] = $bits2[$i];
+		}
+
+		return $concat;
 	}
 
 	/**

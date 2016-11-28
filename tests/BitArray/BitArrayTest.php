@@ -292,6 +292,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @return  void
 	 *
 	 * @covers  chdemko\BitArray\BitArray::jsonSerialize
+	 * @covers  chdemko\BitArray\BitArray::toArray
 	 *
 	 * @since   1.0.0
 	 */
@@ -467,7 +468,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @since   1.0.0
+	 * @since   1.1.0
 	 */
 	public function test_fromJson()
 	{
@@ -484,7 +485,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since   1.1.0
 	 */
 	public function cases_fromSlice()
 	{
@@ -577,6 +578,32 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			$result,
 			(string) BitArray::fromSlice(BitArray::fromString($string), $offset, $size)
+		);
+	}
+
+	/**
+	 * Tests  BitArray::fromConcat
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromConcat
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @since   1.1.0
+	 */
+	public function test_fromConcat()
+	{
+		$bits1 = BitArray::fromString('1001');
+		$bits2 = BitArray::fromString('111');
+
+		$this->assertEquals(
+			'1001111',
+			(string) BitArray::fromConcat($bits1, $bits2)
+		);
+		$this->assertEquals(
+			'1111001',
+			(string) BitArray::fromConcat($bits2, $bits1)
 		);
 	}
 
