@@ -354,6 +354,116 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * Data provider for test_directCopy
+	 *
+	 * @return  array
+	 *
+	 * @since   1.1.0
+	 */
+	public function cases_directCopy()
+	{
+		return [
+			['11010011', 0, 3, 5, '10011011', false],
+			['11010011', 3, 0, 5, '11011010', false],
+			['11010011', 3, 0, 6, '11011010', true],
+			['11010011', 3, 7, 4, '11011010', true],
+		];
+	}
+
+	/**
+	 * Tests  BitArray::directCopy
+	 *
+	 * @param   string   $string     Initial values
+	 * @param   int      $index      Index to copy to
+	 * @param   int      $offset     Offset to copy from
+	 * @param   int      $size       Copy size
+	 * @param   string   $result     Expected result
+	 * @param   boolean  $exception  Expected OutOfRangeException
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::directCopy
+	 * @covers  chdemko\BitArray\BitArray::fromString
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @dataProvider  cases_directCopy
+	 *
+	 * @since   1.1.0
+	 */
+	public function test_directCopy($string, $index, $offset, $size, $result, $exception)
+	{
+		$bits = BitArray::fromString($string);
+
+		if ($exception)
+		{
+			$this->setExpectedException('OutOfRangeException');
+		}
+
+		$bits->directCopy($bits, $index, $offset, $size);
+
+		$this->assertEquals(
+			$result,
+			(string) $bits
+		);
+	}
+
+	/**
+	 * Data provider for test_Copy
+	 *
+	 * @return  array
+	 *
+	 * @since   1.1.0
+	 */
+	public function cases_copy()
+	{
+		return [
+			['11010011', 0, 3, 5, '10011011'],
+			['11010011', 3, 0, 5, '11011010'],
+			['11010011', 3, 0, 6, '11011010'],
+			['11010011', 2, 7, 4, '11110011'],
+			['11010011', 2, -4, 4, '11001111'],
+			['11010011', 9, -4, 4, '11010011'],
+			['11010011', 0, 3, null, '10011011'],
+			['11010011', 0, 3, -3, '10010011'],
+		];
+	}
+
+	/**
+	 * Tests  BitArray::Copy
+	 *
+	 * @param   string   $string     Initial values
+	 * @param   int      $index      Index to copy to
+	 * @param   int      $offset     Offset to copy from
+	 * @param   int      $size       Copy size
+	 * @param   string   $result     Expected result
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::copy
+	 * @covers  chdemko\BitArray\BitArray::getRealOffset
+	 * @covers  chdemko\BitArray\BitArray::getRealSize
+	 * @covers  chdemko\BitArray\BitArray::fromString
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @dataProvider  cases_copy
+	 *
+	 * @since   1.1.0
+	 */
+	public function test_copy($string, $index, $offset, $size, $result)
+	{
+		$bits = BitArray::fromString($string);
+
+		$bits->copy($bits, $index, $offset, $size);
+
+		$this->assertEquals(
+			$result,
+			(string) $bits
+		);
+	}
+
+	/**
 	 * Tests  BitArray::fromInteger
 	 *
 	 * @return  void

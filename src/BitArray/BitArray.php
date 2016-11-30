@@ -81,7 +81,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	}
 
 	/**
-	 * Clone a bitarray
+	 * Clone a BitArray
 	 *
 	 * @return  void
 	 *
@@ -235,9 +235,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	{
 		$count = 0;
 
-		for ($i = 0, $length = strlen($this->data); $i < $length; $i++)
+		for ($index = 0, $length = strlen($this->data); $index < $length; $index++)
 		{
-			$count += self::$count[ord($this->data[$i])];
+			$count += self::$count[ord($this->data[$index])];
 		}
 
 		return $count;
@@ -254,9 +254,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	{
 		$array = [];
 
-		for ($offset = 0; $offset < $this->size; $offset++)
+		for ($index = 0; $index < $this->size; $index++)
 		{
-			$array[] = (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
+			$array[] = (bool) (ord($this->data[(int) ($index / 8)]) & (1 << $index % 8));
 		}
 
 		return $array;
@@ -299,9 +299,149 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	}
 
 	/**
+	 * Copy bits directly from a BitArray
+	 *
+	 * @param   BitArray  $bits    A BitArray to copy
+	 * @param   int       $index   Starting index for destination
+	 * @param   int       $offset  Starting index for copying
+	 * @param   int       $size    Copy size
+	 *
+	 * @return  BitArray  This object for chaining
+	 *
+	 * @throw   \OutOfRangeException  Argument index must be an positive integer lesser than the size
+	 *
+	 * @since   1.1.0
+	 */
+	public function directCopy(BitArray $bits, $index = 0, $offset = 0, $size = 0)
+	{
+		if ($offset > $index)
+		{
+			for ($i = 0; $i < $size; $i++)
+			{
+				$this[$i + $index] = $bits[$i + $offset];
+			}
+		}
+		else
+		{
+			for ($i = $size - 1; $i >= 0; $i--)
+			{
+				$this[$i + $index] = $bits[$i + $offset];
+			}
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Copy bits from a BitArray
+	 *
+	 * @param   BitArray  $bits    A BitArray to copy
+	 * @param   int       $index   Starting index for destination.
+	 *                             If index is non-negative, the index parameter is used as it is, keeping its real value between 0 and size-1.
+	 *                             If index is negative, the index parameter starts from the end, keeping its real value between 0 and size-1.
+	 * @param   int       $offset  Starting index for copying.
+	 *                             If offset is non-negative, the offset parameter is used as it is, keeping its positive value between 0 and size-1.
+	 *                             If offset is negative, the offset parameter starts from the end, keeping its real value between 0 and size-1.
+	 * @param   mixed     $size    Copy size.
+	 *                             If size is given and is positive, then the copy will copy size elements.
+	 *                             If the bits argument is shorter than the size, then only the available elements will be copied.
+	 *                             If size is given and is negative then the copy starts from the end.
+	 *                             If it is omitted, then the copy will have everything from offset up until the end of the bits argument.
+	 *
+	 * @return  BitArray  This object for chaining
+	 *
+	 * @since   1.1.0
+	 */
+	public function copy(BitArray $bits, $index = 0, $offset = 0, $size = null)
+	{
+		$index = $this->getRealOffset($index);
+		$offset = $bits->getRealOffset($offset);
+		$size = $bits->getRealSize($offset, $size);
+
+		if ($size > $this->size - $index)
+		{
+			$size = $this->size - $index;
+		}
+
+		return $this->directCopy($bits, $index, $offset, $size);
+	}
+
+	/**
+	 * Get the real offset using a positive or negative offset
+	 *
+	 * @param   int  $offset  If offset is non-negative, the offset parameter is used as it is, keeping its real value between 0 and size-1.
+	 *                        If offset is negative, the offset parameter starts from the end, keeping its real value between 0 and size-1.
+	 *
+	 * @return  int  The real offset
+	 *
+	 * @since   1.1.0
+	 */
+	protected function getRealOffset($offset)
+	{
+		$offset = (int) $offset;
+
+		if ($offset < 0)
+		{
+			// Start from the end
+			$offset = $this->size + $offset;
+
+			if ($offset < 0)
+			{
+				$offset = 0;
+			}
+		}
+		elseif ($offset > $this->size)
+		{
+			$offset = $this->size;
+		}
+
+		return $offset;
+	}
+
+	/**
+	 * Get the real offset using a positive or negative offset
+	 *
+	 * @param   int    $offset  The real offset.
+	 * @param   mixed  $size    If size is given and is positive, then the real size will be between 0 and the current size-1.
+	 *                          If size is given and is negative then the real size starts from the end.
+	 *                          If it is omitted, then the size goes until the end of the BitArray.
+	 *
+	 * @return  int  The real size
+	 *
+	 * @since   1.1.0
+	 */
+	protected function getRealSize($offset, $size)
+	{
+		if ($size === null)
+		{
+			$size = $this->size - $offset;
+		}
+		else
+		{
+			$size = (int) $size;
+
+			if ($size < 0)
+			{
+				$size = $this->size + $size - $offset;
+
+				if ($size < 0)
+				{
+					$size = 0;
+				}
+			}
+			elseif ($size > $this->size - $offset)
+			{
+				$size = $this->size - $offset;
+			}
+		}
+
+		return $size;
+	}
+
+	/**
 	 * Create a new BitArray from an integer
 	 *
-	 * @param   integer  $size  Size of the bitarray
+	 * @param   integer  $size  Size of the BitArray
 	 *
 	 * @return  BitArray  A new BitArray
 	 *
@@ -404,9 +544,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	/**
 	 * Create a new BitArray using a slice
 	 *
-	 * @param   BitArray  $bits    A bitarray to get the slice
+	 * @param   BitArray  $bits    A BitArray to get the slice
 	 * @param   int       $offset  If offset is non-negative, the slice will start at that offset in the bits argument.
-	 *                             If offset is negative, the slice will start that far from the end of the bits argument.
+	 *                             If offset is negative, the slice will start from the end of the bits argument.
 	 * @param   mixed     $size    If size is given and is positive, then the slice will have up to that many elements in it.
 	 *                             If the bits argument is shorter than the size, then only the available elements will be present.
 	 *                             If size is given and is negative then the slice will stop that many elements from the end of the bits argument.
@@ -418,61 +558,18 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 */
 	public static function fromSlice(BitArray $bits, $offset = 0, $size = null)
 	{
-		$offset = (int) $offset;
-
-		if ($offset < 0)
-		{
-			// Start from the end
-			$offset = $bits->size + $offset;
-
-			if ($offset < 0)
-			{
-				$offset = 0;
-			}
-		}
-		elseif ($offset > $bits->size)
-		{
-			$offset = $bits->size;
-		}
-
-		if ($size === null)
-		{
-			$size = $bits->size - $offset;
-		}
-		else
-		{
-			$size = (int) $size;
-
-			if ($size < 0)
-			{
-				$size = $bits->size + $size - $offset;
-
-				if ($size < 0)
-				{
-					$size = 0;
-				}
-			}
-			elseif ($size > $bits->size - $offset)
-			{
-				$size = $bits->size - $offset;
-			}
-		}
-
+		$offset = $bits->getRealOffset($offset);
+		$size = $bits->getRealSize($offset, $size);
 		$slice = new BitArray($size);
 
-		for ($i = 0; $i < $size; $i++)
-		{
-			$slice[$i] = $bits[$i + $offset];
-		}
-
-		return $slice;
+		return $slice->directCopy($bits, 0, $offset, $size);
 	}
 
 	/**
 	 * Create a new BitArray using the concat operation
 	 *
-	 * @param   BitArray  $bits1  A bitarray
-	 * @param   BitArray  $bits2  A bitarray
+	 * @param   BitArray  $bits1  A BitArray
+	 * @param   BitArray  $bits2  A BitArray
 	 *
 	 * @return  BitArray  A new BitArray
 	 *
@@ -482,16 +579,8 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	{
 		$size = $bits1->size + $bits2->size;
 		$concat = new BitArray($size);
-
-		for ($i = 0; $i < $bits1->size; $i++)
-		{
-			$concat[$i] = $bits1[$i];
-		}
-
-		for ($i = 0; $i < $bits2->size; $i++)
-		{
-			$concat[$i + $bits1->size] = $bits2[$i];
-		}
+		$concat->directCopy($bits1, 0, 0, $bits1->size);
+		$concat->directCopy($bits2, $bits1->size, 0, $bits2->size);
 
 		return $concat;
 	}
@@ -507,9 +596,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	{
 		$length = strlen($this->data);
 
-		for ($i = 0; $i < $length; $i++)
+		for ($index = 0; $index < $length; $index++)
 		{
-			$this->data[$i] = chr(~ ord($this->data[$i]));
+			$this->data[$index] = chr(~ ord($this->data[$index]));
 		}
 
 		// Remove useless bits
@@ -538,9 +627,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		{
 			$length = strlen($this->data);
 
-			for ($i = 0; $i < $length; $i++)
+			for ($index = 0; $index < $length; $index++)
 			{
-				$this->data[$i] = chr(ord($this->data[$i]) | ord($bits->data[$i]));
+				$this->data[$index] = chr(ord($this->data[$index]) | ord($bits->data[$index]));
 			}
 
 			return $this;
@@ -568,9 +657,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		{
 			$length = strlen($this->data);
 
-			for ($i = 0; $i < $length; $i++)
+			for ($index = 0; $index < $length; $index++)
 			{
-				$this->data[$i] = chr(ord($this->data[$i]) & ord($bits->data[$i]));
+				$this->data[$index] = chr(ord($this->data[$index]) & ord($bits->data[$index]));
 			}
 
 			return $this;
@@ -598,9 +687,9 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		{
 			$length = strlen($this->data);
 
-			for ($i = 0; $i < $length; $i++)
+			for ($index = 0; $index < $length; $index++)
 			{
-				$this->data[$i] = chr(ord($this->data[$i]) ^ ord($bits->data[$i]));
+				$this->data[$index] = chr(ord($this->data[$index]) ^ ord($bits->data[$index]));
 			}
 
 			return $this;
