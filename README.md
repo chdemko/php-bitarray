@@ -22,8 +22,8 @@ The bit arrays may have variable length specified when an object is created usin
 * a slice from another bit array;
 * a concatenation from two others bit arrays.
 
-The project provides methods to get and set bits values using PHP natural syntax as well as the iterator facility offered by PHP foreach language construct.
-It also provides methods for bitwise logical operations between two bit arrays `and`, `or`, `xor` and also `not` operation.
+The project provides methods to get and set bits values using PHP natural syntax as well as the iterator facility offered by PHP `foreach` language construct.
+It also provides methods for bitwise logical operations between two bit arrays `and`, `or`, `xor` and the `not` operation.
 
 This project uses:
 
