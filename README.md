@@ -11,6 +11,20 @@ PHP BitArray
 
 BitArray for PHP.
 
+This project manipulates compact array of bit values stored internally as strings.
+
+The bit arrays may have variable length specified when an object is created using either:
+
+* a specific size;
+* a traversable collection;
+* a string representation of bits;
+* a json representation of bits;
+* a slice from another bit array;
+* a concatenation from two others bit arrays.
+
+The project provides methods to get and set bits values using PHP natural syntax as well as the iterator facility offered by PHP foreach language construct.
+It also provides methods for bitwise logical operations between two bit arrays `and`, `or`, `xor` and also `not` operation.
+
 This project uses:
 
 * [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer) for checking PHP code style using [Joomla Coding Standards](https://github.com/joomla/coding-standards)
