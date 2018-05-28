@@ -37,7 +37,7 @@ Installation
 Using composer: either
 
 ~~~
-$ composer create-project chdemko/bitarray:1.1.x-dev --dev; cd bitarray
+$ composer create-project chdemko/bitarray:1.2.x-dev --dev; cd bitarray
 ~~~
 
 or create a `composer.json` file containing
@@ -45,7 +45,7 @@ or create a `composer.json` file containing
 ~~~json
 {
     "require": {
-        "chdemko/bitarray": "1.1.x-dev"
+        "chdemko/bitarray": "1.2.x-dev"
     }
 }
 ~~~
