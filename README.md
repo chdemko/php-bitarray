@@ -27,7 +27,7 @@ It also provides methods for bitwise logical operations between two bit arrays `
 
 This project uses:
 
-* [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer) for checking PHP code style using [Joomla Coding Standards](https://github.com/joomla/coding-standards)
+* [PHP Code Sniffer](https://github.com/squizlabs/php_codesniffer) for checking PHP code style using [Joomla Coding Standards](https://github.com/joomla/coding-standards)
 * [PHPUnit](http://phpunit.de/) for unit test (100% covered)
 * [phpDocumentor](http://http://www.phpdoc.org/) for api documentation
 
