@@ -4,9 +4,9 @@
  * chdemko\BitArray\BitArray class
  *
  * @author     Christophe Demko <chdemko@gmail.com>
- * @copyright  Copyright (C) 2012-2016 Christophe Demko. All rights reserved.
+ * @copyright  Copyright (C) 2012-2018 Christophe Demko. All rights reserved.
  *
- * @license    http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html The CeCILL B license
+ * @license    BSD 3-Clause License
  *
  * This file is part of the php-bitarray package https://github.com/chdemko/php-bitarray
  */
@@ -19,17 +19,22 @@ namespace chdemko\BitArray;
  *
  * @package  BitArray
  *
- * @property-read  integer    $count  The number of bits set to true
- * @property-read  integer    $size   The number of bits
- * 
+ * @property-read  integer  $count  The number of bits set to true
+ * @property-read  integer  $size   The number of bits
+ *
  * @since    1.0.0
  */
 class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
 {
 	/**
+	 * @var  BitArray  Empty bit array
+	 */
+	private static $empty;
+
+	/**
 	 * @var  integer[]  Number of bits for each value between 0 and 255
 	 */
-	private static $count = [
+	private static $count = array(
 		0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
 		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
 		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
@@ -46,12 +51,12 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
 		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
 		4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8
-	];
+	);
 
 	/**
 	 * @var  integer[]  Mask for restricting complements
 	 */
-	private static $restrict = [255, 1, 3, 7, 15, 31, 63, 127];
+	private static $restrict = array(255, 1, 3, 7, 15, 31, 63, 127);
 
 	/**
 	 * @var     string  Underlying data
@@ -70,14 +75,43 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	/**
 	 * Create a new bit array of the given size
 	 *
-	 * @param   integer  $size  The BitArray size
+	 * @param   integer  $size     The BitArray size
+	 * @param   boolean  $default  The default value for bits
 	 *
 	 * @since   1.0.0
 	 */
-	protected function __construct($size)
+	protected function __construct($size = 0, $default = false)
 	{
 		$this->size = (int) $size;
-		$this->data = str_repeat("\0", ceil($this->size / 8));
+
+		if ($default)
+		{
+			$this->data = str_repeat(chr(255), ceil($this->size / 8));
+			$this->restrict();
+		}
+		else
+		{
+			$this->data = str_repeat(chr(0), ceil($this->size / 8));
+		}
+	}
+
+	/**
+	 * Remove useless bits for simplifying count operation.
+	 *
+	 * @return  BitArray  $this for chaining
+	 *
+	 * @since   1.2.0
+	 */
+	protected function restrict()
+	{
+		$length = strlen($this->data);
+
+		if ($length > 0)
+		{
+			$this->data[$length - 1] = chr(ord($this->data[$length - 1]) & self::$restrict[$this->size % 8]);
+		}
+
+		return $this;
 	}
 
 	/**
@@ -252,7 +286,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 */
 	public function toArray()
 	{
-		$array = [];
+		$array = array();
 
 		for ($index = 0; $index < $this->size; $index++)
 		{
@@ -372,7 +406,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 * @param   int  $offset  If offset is non-negative, the offset parameter is used as it is, keeping its real value between 0 and size-1.
 	 *                        If offset is negative, the offset parameter starts from the end, keeping its real value between 0 and size-1.
 	 *
-	 * @return  int  The real offset
+	 * @return  integer  The real offset
 	 *
 	 * @since   1.1.0
 	 */
@@ -406,7 +440,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	 *                          If size is given and is negative then the real size starts from the end.
 	 *                          If it is omitted, then the size goes until the end of the BitArray.
 	 *
-	 * @return  int  The real size
+	 * @return  integer  The real size
 	 *
 	 * @since   1.1.0
 	 */
@@ -441,15 +475,41 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 	/**
 	 * Create a new BitArray from an integer
 	 *
-	 * @param   integer  $size  Size of the BitArray
+	 * @param   integer  $size     Size of the BitArray
+	 * @param   boolean  $default  The default value for bits
 	 *
 	 * @return  BitArray  A new BitArray
 	 *
 	 * @since   1.0.0
 	 */
-	public static function fromInteger($size)
+	public static function fromInteger($size, $default = false)
 	{
-		return new BitArray($size);
+		return new BitArray($size, (bool) $default);
+	}
+
+	/**
+	 * Create a new BitArray from a sequence of bits.
+	 *
+	 * @param   integer  $size    Size of the BitArray
+	 * @param   integer  $values  The values for the bits
+	 *
+	 * @return  BitArray  A new BitArray
+	 *
+	 * @since   1.2.0
+	 */
+	public static function fromDecimal($size, $values = 0)
+	{
+		$size = min((int) $size, PHP_INT_SIZE);
+		$values <<= PHP_INT_SIZE - $size;
+		$bits = new BitArray($size);
+
+		for ($i = 0; $i < PHP_INT_SIZE; $i++)
+		{
+			$bits->data[$i] = chr(($values & (0xff << (PHP_INT_SIZE - 8))) >> (PHP_INT_SIZE - 8));
+			$values <<= 8;
+		}
+
+		return $bits;
 	}
 
 	/**
@@ -601,13 +661,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 			$this->data[$index] = chr(~ ord($this->data[$index]));
 		}
 
-		// Remove useless bits
-		if ($length > 0)
-		{
-			$this->data[$length - 1] = chr(ord($this->data[$length - 1]) & self::$restrict[$this->size % 8]);
-		}
-
-		return $this;
+		return $this->restrict();
 	}
 
 	/**
@@ -698,5 +752,53 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
 		{
 			throw new \InvalidArgumentException('Argument must be of equal size');
 		}
+	}
+
+	/**
+	 * Shift a bit array.
+	 *
+	 * @param   int       $size   Size to shift.
+	 *                            Negative value means the shifting is done right to left while
+	 *                            positive value means the shifting is done left to right.
+	 * @param   boolean   $value  Value to shift
+	 *
+	 * @return  BitArray  $this for chaining
+	 *
+	 * @since   1.2.0
+	 */
+	public function shift($size = 1, $value = false)
+	{
+		$size = (int) $size;
+
+		if ($size > 0)
+		{
+			$min = min($this->size, $size);
+
+			for ($i = $this->size - 1; $i >= $min; $i--)
+			{
+				$this[$i] = $this[$i - $min];
+			}
+
+			for ($i = 0; $i < $min; $i++)
+			{
+				$this[$i] = $value;
+			}
+		}
+		else
+		{
+			$min = min($this->size, -$size);
+
+			for ($i = 0; $i < $this->size - $min; $i++)
+			{
+				$this[$i] = $this[$i + $min];
+			}
+
+			for ($i = $this->size - $min; $i < $this->size; $i++)
+			{
+				$this[$i] = $value;
+			}
+		}
+
+		return $this;
 	}
 }

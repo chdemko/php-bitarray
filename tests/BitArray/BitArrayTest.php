@@ -4,15 +4,17 @@
  * chdemko\BitArray\BitArrayTest class
  *
  * @author     Christophe Demko <chdemko@gmail.com>
- * @copyright  Copyright (C) 2012-2016 Christophe Demko. All rights reserved.
+ * @copyright  Copyright (C) 2012-2018 Christophe Demko. All rights reserved.
  *
- * @license    http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html The CeCILL B license
+ * @license    BSD 3-Clause License
  *
  * This file is part of the php-bitarray package https://github.com/chdemko/php-bitarray
  */
 
 // Declare chdemko\BitArray namespace
 namespace chdemko\BitArray;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * BitArray class test
@@ -21,7 +23,7 @@ namespace chdemko\BitArray;
  *
  * @since    1.0.0
  */
-class BitArrayTest extends \PHPUnit_Framework_TestCase
+class BitArrayTest extends TestCase
 {
 	/**
 	 * Tests  BitArray::__clone
@@ -33,7 +35,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test___clone()
+	public function testClone()
 	{
 		$bits = BitArray::fromString('1001');
 		$clone = clone $bits;
@@ -52,31 +54,31 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_offsetExists
+	 * Data provider for testoffsetExists
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_offsetExists()
+	public function casesOffsetExists()
 	{
-		return [
-			['', 'a', false],
-			['', -1, false],
-			['', 0, false],
-			['10101', 0, true],
-			['10101', 4, true],
-			['10101', 5, false],
-			['10101001', 0, true],
-			['10101001', 7, true],
-			['10101001', 8, false],
-			['10101001', 0, true],
-			['10101001', 7, true],
-			['10101001', 8, false],
-			['101010010', 0, true],
-			['101010010', 8, true],
-			['101010010', 9, false],
-		];
+		return array(
+			array('', 'a', false),
+			array('', -1, false),
+			array('', 0, false),
+			array('10101', 0, true),
+			array('10101', 4, true),
+			array('10101', 5, false),
+			array('10101001', 0, true),
+			array('10101001', 7, true),
+			array('10101001', 8, false),
+			array('10101001', 0, true),
+			array('10101001', 7, true),
+			array('10101001', 8, false),
+			array('101010010', 0, true),
+			array('101010010', 8, true),
+			array('101010010', 9, false),
+		);
 	}
 
 	/**
@@ -90,11 +92,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @covers  chdemko\BitArray\BitArray::offsetExists
 	 *
-	 * @dataProvider  cases_offsetExists
+	 * @dataProvider  casesOffsetExists
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_offsetExists($string, $offset, $expected)
+	public function testOffsetExists($string, $offset, $expected)
 	{
 		$bits = BitArray::fromString($string);
 
@@ -105,31 +107,31 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_offsetGet
+	 * Data provider for testoffsetGet
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_offsetGet()
+	public function casesOffsetGet()
 	{
-		return [
-			['', 'a', null, true],
-			['', -1, null, true],
-			['', 0, null, true],
-			['10101', 0, true, false],
-			['10101', 4, true, false],
-			['10101', 5, null, true],
-			['10101001', 0, true, false],
-			['10101001', 7, true, false],
-			['10101001', 8, null, true],
-			['10101001', 0, true, false],
-			['10101001', 7, true, false],
-			['10101001', 8, null, true],
-			['101010010', 0, true, false],
-			['101010010', 8, false, false],
-			['101010010', 9, null, true],
-		];
+		return array(
+			array('', 'a', null, true),
+			array('', -1, null, true),
+			array('', 0, null, true),
+			array('10101', 0, true, false),
+			array('10101', 4, true, false),
+			array('10101', 5, null, true),
+			array('10101001', 0, true, false),
+			array('10101001', 7, true, false),
+			array('10101001', 8, null, true),
+			array('10101001', 0, true, false),
+			array('10101001', 7, true, false),
+			array('10101001', 8, null, true),
+			array('101010010', 0, true, false),
+			array('101010010', 8, false, false),
+			array('101010010', 9, null, true),
+		);
 	}
 
 	/**
@@ -144,17 +146,17 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @covers  chdemko\BitArray\BitArray::offsetGet
 	 *
-	 * @dataProvider  cases_offsetGet
+	 * @dataProvider  casesOffsetGet
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_offsetGet($string, $offset, $expected, $exception)
+	public function testOffsetGet($string, $offset, $expected, $exception)
 	{
 		$bits = BitArray::fromString($string);
 
 		if ($exception)
 		{
-			$this->setExpectedException('OutOfRangeException');
+			$this->expectException('OutOfRangeException');
 		}
 
 		$this->assertEquals(
@@ -164,31 +166,31 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_offsetSet
+	 * Data provider for testoffsetSet
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_offsetSet()
+	public function casesOffsetSet()
 	{
-		return [
-			['', 'a', null, null, true],
-			['', -1, null, null, true],
-			['', 0, null, null, true],
-			['10101', 0, false, false, false],
-			['10101', 4, false, false, false],
-			['10101', 5, null, null, true],
-			['10101001', 0, false, false, false],
-			['10101001', 7, false, false, false],
-			['10101001', 8, null, null, true],
-			['10101001', 0, false, false, false],
-			['10101001', 7, false, false, false],
-			['10101001', 8, null, null, true],
-			['101010010', 0, false, false, false],
-			['101010010', 8, true, true, false],
-			['101010010', 9, null, null, true],
-		];
+		return array(
+			array('', 'a', null, null, true),
+			array('', -1, null, null, true),
+			array('', 0, null, null, true),
+			array('10101', 0, false, false, false),
+			array('10101', 4, false, false, false),
+			array('10101', 5, null, null, true),
+			array('10101001', 0, false, false, false),
+			array('10101001', 7, false, false, false),
+			array('10101001', 8, null, null, true),
+			array('10101001', 0, false, false, false),
+			array('10101001', 7, false, false, false),
+			array('10101001', 8, null, null, true),
+			array('101010010', 0, false, false, false),
+			array('101010010', 8, true, true, false),
+			array('101010010', 9, null, null, true),
+		);
 	}
 
 	/**
@@ -204,17 +206,17 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @covers  chdemko\BitArray\BitArray::offsetSet
 	 *
-	 * @dataProvider  cases_offsetSet
+	 * @dataProvider  casesOffsetSet
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_offsetSet($string, $offset, $value, $expected, $exception)
+	public function testOffsetSet($string, $offset, $value, $expected, $exception)
 	{
 		$bits = BitArray::fromString($string);
 
 		if ($exception)
 		{
-			$this->setExpectedException('OutOfRangeException');
+			$this->expectException('OutOfRangeException');
 		}
 
 		$bits[$offset] = $value;
@@ -233,11 +235,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_offsetUnset()
+	public function testOffsetUnset()
 	{
 		$bits = BitArray::fromString('10');
 
-		$this->setExpectedException('RuntimeException');
+		$this->expectException('RuntimeException');
 
 		unset($bits[0]);
 	}
@@ -248,15 +250,24 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @return  void
 	 *
 	 * @covers  chdemko\BitArray\BitArray::count
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::fromInteger
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_count()
+	public function testCount()
 	{
 		$bits = BitArray::fromString('1001000011001100');
 
 		$this->assertEquals(
 			6,
+			$bits->count
+		);
+
+		$bits = BitArray::fromInteger(14, true);
+
+		$this->assertEquals(
+			14,
 			$bits->count
 		);
 	}
@@ -270,7 +281,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test___get()
+	public function testGet()
 	{
 		$bits = BitArray::fromString('1001000011001100');
 
@@ -282,7 +293,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 			16,
 			$bits->size
 		);
-		$this->setExpectedException('RuntimeException');
+		$this->expectException('RuntimeException');
 		$unexisting = $bits->unexisting;
 	}
 
@@ -296,7 +307,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_jsonSerialize()
+	public function testJsonSerialize()
 	{
 		$bits = BitArray::fromString('1001');
 
@@ -321,7 +332,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_getIterator()
+	public function testGetIterator()
 	{
 		$bits = BitArray::fromString('1001');
 
@@ -343,7 +354,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_size()
+	public function testSize()
 	{
 		$bits = BitArray::fromString('1001');
 
@@ -354,20 +365,20 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_directCopy
+	 * Data provider for testdirectCopy
 	 *
 	 * @return  array
 	 *
 	 * @since   1.1.0
 	 */
-	public function cases_directCopy()
+	public function casesDirectCopy()
 	{
-		return [
-			['11010011', 0, 3, 5, '10011011', false],
-			['11010011', 3, 0, 5, '11011010', false],
-			['11010011', 3, 0, 6, '11011010', true],
-			['11010011', 3, 7, 4, '11011010', true],
-		];
+		return array(
+			array('11010011', 0, 3, 5, '10011011', false),
+			array('11010011', 3, 0, 5, '11011010', false),
+			array('11010011', 3, 0, 6, '11011010', true),
+			array('11010011', 3, 7, 4, '11011010', true),
+		);
 	}
 
 	/**
@@ -387,17 +398,17 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_directCopy
+	 * @dataProvider  casesDirectCopy
 	 *
 	 * @since   1.1.0
 	 */
-	public function test_directCopy($string, $index, $offset, $size, $result, $exception)
+	public function testDirectCopy($string, $index, $offset, $size, $result, $exception)
 	{
 		$bits = BitArray::fromString($string);
 
 		if ($exception)
 		{
-			$this->setExpectedException('OutOfRangeException');
+			$this->expectException('OutOfRangeException');
 		}
 
 		$bits->directCopy($bits, $index, $offset, $size);
@@ -409,36 +420,36 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_Copy
+	 * Data provider for testCopy
 	 *
 	 * @return  array
 	 *
 	 * @since   1.1.0
 	 */
-	public function cases_copy()
+	public function casesCopy()
 	{
-		return [
-			['11010011', 0, 3, 5, '10011011'],
-			['11010011', 3, 0, 5, '11011010'],
-			['11010011', 3, 0, 6, '11011010'],
-			['11010011', 2, 7, 4, '11110011'],
-			['11010011', 2, -4, 4, '11001111'],
-			['11010011', 9, -4, 4, '11010011'],
-			['11010011', 2, -9, 4, '11110111'],
-			['11010011', 0, 3, null, '10011011'],
-			['11010011', 0, 3, -3, '10010011'],
-			['11010011', 0, 3, -9, '11010011'],
-		];
+		return array(
+			array('11010011', 0, 3, 5, '10011011'),
+			array('11010011', 3, 0, 5, '11011010'),
+			array('11010011', 3, 0, 6, '11011010'),
+			array('11010011', 2, 7, 4, '11110011'),
+			array('11010011', 2, -4, 4, '11001111'),
+			array('11010011', 9, -4, 4, '11010011'),
+			array('11010011', 2, -9, 4, '11110111'),
+			array('11010011', 0, 3, null, '10011011'),
+			array('11010011', 0, 3, -3, '10010011'),
+			array('11010011', 0, 3, -9, '11010011'),
+		);
 	}
 
 	/**
 	 * Tests  BitArray::Copy
 	 *
-	 * @param   string   $string     Initial values
-	 * @param   int      $index      Index to copy to
-	 * @param   int      $offset     Offset to copy from
-	 * @param   int      $size       Copy size
-	 * @param   string   $result     Expected result
+	 * @param   string  $string  Initial values
+	 * @param   int     $index   Index to copy to
+	 * @param   int     $offset  Offset to copy from
+	 * @param   int     $size    Copy size
+	 * @param   string  $result  Expected result
 	 *
 	 * @return  void
 	 *
@@ -449,11 +460,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_copy
+	 * @dataProvider  casesCopy
 	 *
 	 * @since   1.1.0
 	 */
-	public function test_copy($string, $index, $offset, $size, $result)
+	public function testCopy($string, $index, $offset, $size, $result)
 	{
 		$bits = BitArray::fromString($string);
 
@@ -476,7 +487,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_fromInteger()
+	public function testFromInteger()
 	{
 		$bits = BitArray::fromInteger(10);
 
@@ -487,20 +498,41 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_fromTraversable
+	 * Tests  BitArray::fromDecimal
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::fromDecimal
+	 * @covers  chdemko\BitArray\BitArray::__construct
+	 * @covers  chdemko\BitArray\BitArray::__toString
+	 *
+	 * @since   1.2.0
+	 */
+	public function testFromDecimal()
+	{
+		$bits = BitArray::fromDecimal(10, 255);
+
+		$this->assertEquals(
+			'0011111111',
+			(string) $bits
+		);
+	}
+
+	/**
+	 * Data provider for testfromTraversable
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_fromTraversable()
+	public function casesFromTraversable()
 	{
-		return [
-			[[], ''],
-			[[true, false, true, false, true], '10101'],
-			[[true, false, true, false, true, false, false, true], '10101001'],
-			[[true, false, true, false, true, false, false, true, false], '101010010'],
-		];
+		return array(
+			array(array(), ''),
+			array(array(true, false, true, false, true), '10101'),
+			array(array(true, false, true, false, true, false, false, true), '10101001'),
+			array(array(true, false, true, false, true, false, false, true, false), '101010010'),
+		);
 	}
 
 	/**
@@ -515,11 +547,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_fromTraversable
+	 * @dataProvider  casesFromTraversable
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_fromTraversable($traversable, $expected)
+	public function testFromTraversable($traversable, $expected)
 	{
 		$bits = BitArray::fromTraversable($traversable);
 
@@ -530,20 +562,20 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_fromString
+	 * Data provider for testfromString
 	 *
 	 * @return  array
 	 *
 	 * @since   1.0.0
 	 */
-	public function cases_fromString()
+	public function casesFromString()
 	{
-		return [
-			[''],
-			['10101'],
-			['10101001'],
-			['101010010'],
-		];
+		return array(
+			array(''),
+			array('10101'),
+			array('10101001'),
+			array('101010010'),
+		);
 	}
 
 	/**
@@ -557,11 +589,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_fromString
+	 * @dataProvider  casesFromString
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_fromString($string)
+	public function testFromString($string)
 	{
 		$bits = BitArray::fromString($string);
 
@@ -582,7 +614,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.1.0
 	 */
-	public function test_fromJson()
+	public function testFromJson()
 	{
 		$bits = BitArray::fromJson('[true,false,false,true]');
 
@@ -593,78 +625,78 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Data provider for test_fromSlice
+	 * Data provider for testfromSlice
 	 *
 	 * @return  array
 	 *
 	 * @since   1.1.0
 	 */
-	public function cases_fromSlice()
+	public function casesFromSlice()
 	{
-		return [
-			['', 0, null, ''],
-			['11010110', 0, null, '11010110'],
-			['11010110', 1, null, '1010110'],
-			['11010110', 8, null, ''],
-			['11010110', 9, null, ''],
-			['11010110', -7, null, '1010110'],
-			['11010110', -8, null, '11010110'],
-			['11010110', -9, null, '11010110'],
+		return array(
+			array('', 0, null, ''),
+			array('11010110', 0, null, '11010110'),
+			array('11010110', 1, null, '1010110'),
+			array('11010110', 8, null, ''),
+			array('11010110', 9, null, ''),
+			array('11010110', -7, null, '1010110'),
+			array('11010110', -8, null, '11010110'),
+			array('11010110', -9, null, '11010110'),
 
-			['', 0, 4, ''],
-			['11010110', 0, 4, '1101'],
-			['11010110', 1, 4, '1010'],
-			['11010110', 8, 4, ''],
-			['11010110', 9, 4, ''],
-			['11010110', -7, 4, '1010'],
-			['11010110', -8, 4, '1101'],
-			['11010110', -9, 4, '1101'],
+			array('', 0, 4, ''),
+			array('11010110', 0, 4, '1101'),
+			array('11010110', 1, 4, '1010'),
+			array('11010110', 8, 4, ''),
+			array('11010110', 9, 4, ''),
+			array('11010110', -7, 4, '1010'),
+			array('11010110', -8, 4, '1101'),
+			array('11010110', -9, 4, '1101'),
 
-			['', 0, 8, ''],
-			['11010110', 0, 8, '11010110'],
-			['11010110', 1, 8, '1010110'],
-			['11010110', 8, 8, ''],
-			['11010110', 9, 8, ''],
-			['11010110', -7, 8, '1010110'],
-			['11010110', -8, 8, '11010110'],
-			['11010110', -9, 8, '11010110'],
+			array('', 0, 8, ''),
+			array('11010110', 0, 8, '11010110'),
+			array('11010110', 1, 8, '1010110'),
+			array('11010110', 8, 8, ''),
+			array('11010110', 9, 8, ''),
+			array('11010110', -7, 8, '1010110'),
+			array('11010110', -8, 8, '11010110'),
+			array('11010110', -9, 8, '11010110'),
 
-			['', 0, 9, ''],
-			['11010110', 0, 9, '11010110'],
-			['11010110', 1, 9, '1010110'],
-			['11010110', 8, 9, ''],
-			['11010110', 9, 9, ''],
-			['11010110', -7, 9, '1010110'],
-			['11010110', -8, 9, '11010110'],
-			['11010110', -9, 9, '11010110'],
+			array('', 0, 9, ''),
+			array('11010110', 0, 9, '11010110'),
+			array('11010110', 1, 9, '1010110'),
+			array('11010110', 8, 9, ''),
+			array('11010110', 9, 9, ''),
+			array('11010110', -7, 9, '1010110'),
+			array('11010110', -8, 9, '11010110'),
+			array('11010110', -9, 9, '11010110'),
 
-			['', 0, -4, ''],
-			['11010110', 0, -4, '1101'],
-			['11010110', 1, -4, '101'],
-			['11010110', 8, -4, ''],
-			['11010110', 9, -4, ''],
-			['11010110', -7, -4, '101'],
-			['11010110', -8, -4, '1101'],
-			['11010110', -9, -4, '1101'],
+			array('', 0, -4, ''),
+			array('11010110', 0, -4, '1101'),
+			array('11010110', 1, -4, '101'),
+			array('11010110', 8, -4, ''),
+			array('11010110', 9, -4, ''),
+			array('11010110', -7, -4, '101'),
+			array('11010110', -8, -4, '1101'),
+			array('11010110', -9, -4, '1101'),
 
-			['', 0, -8, ''],
-			['11010110', 0, -8, ''],
-			['11010110', 1, -8, ''],
-			['11010110', 8, -8, ''],
-			['11010110', 9, -8, ''],
-			['11010110', -7, -8, ''],
-			['11010110', -8, -8, ''],
-			['11010110', -9, -8, ''],
+			array('', 0, -8, ''),
+			array('11010110', 0, -8, ''),
+			array('11010110', 1, -8, ''),
+			array('11010110', 8, -8, ''),
+			array('11010110', 9, -8, ''),
+			array('11010110', -7, -8, ''),
+			array('11010110', -8, -8, ''),
+			array('11010110', -9, -8, ''),
 
-			['', 0, -9, ''],
-			['11010110', 0, -9, ''],
-			['11010110', 1, -9, ''],
-			['11010110', 8, -9, ''],
-			['11010110', 9, -9, ''],
-			['11010110', -7, -9, ''],
-			['11010110', -8, -9, ''],
-			['11010110', -9, -9, ''],
-		];
+			array('', 0, -9, ''),
+			array('11010110', 0, -9, ''),
+			array('11010110', 1, -9, ''),
+			array('11010110', 8, -9, ''),
+			array('11010110', 9, -9, ''),
+			array('11010110', -7, -9, ''),
+			array('11010110', -8, -9, ''),
+			array('11010110', -9, -9, ''),
+		);
 	}
 
 	/**
@@ -681,11 +713,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @covers  chdemko\BitArray\BitArray::__construct
 	 * @covers  chdemko\BitArray\BitArray::__toString
 	 *
-	 * @dataProvider  cases_fromSlice
+	 * @dataProvider  casesFromSlice
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_fromSlice($string, $offset, $size, $result)
+	public function testFromSlice($string, $offset, $size, $result)
 	{
 		$this->assertEquals(
 			$result,
@@ -704,7 +736,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.1.0
 	 */
-	public function test_fromConcat()
+	public function testFromConcat()
 	{
 		$bits1 = BitArray::fromString('1001');
 		$bits2 = BitArray::fromString('111');
@@ -725,10 +757,11 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 * @return  void
 	 *
 	 * @covers  chdemko\BitArray\BitArray::applyComplement
+	 * @covers  chdemko\BitArray\BitArray::restrict
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_applyComplement()
+	public function testApplyComplement()
 	{
 		$bits = BitArray::fromString('10011');
 
@@ -755,7 +788,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_applyOr()
+	public function testApplyOr()
 	{
 		$bits = BitArray::fromString('10011');
 
@@ -764,7 +797,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 			(string) $bits->applyOr(BitArray::fromString('01011'))
 		);
 
-		$this->setExpectedException('InvalidArgumentException');
+		$this->expectException('InvalidArgumentException');
 
 		$bits->applyOr(BitArray::fromString('010111'));
 	}
@@ -778,7 +811,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_applyAnd()
+	public function testApplyAnd()
 	{
 		$bits = BitArray::fromString('10011');
 
@@ -787,7 +820,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 			(string) $bits->applyAnd(BitArray::fromString('01011'))
 		);
 
-		$this->setExpectedException('InvalidArgumentException');
+		$this->expectException('InvalidArgumentException');
 
 		$bits->applyAnd(BitArray::fromString('010111'));
 	}
@@ -801,7 +834,7 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @since   1.0.0
 	 */
-	public function test_applyXor()
+	public function testApplyXor()
 	{
 		$bits = BitArray::fromString('10011');
 
@@ -810,8 +843,34 @@ class BitArrayTest extends \PHPUnit_Framework_TestCase
 			(string) $bits->applyXor(BitArray::fromString('01011'))
 		);
 
-		$this->setExpectedException('InvalidArgumentException');
+		$this->expectException('InvalidArgumentException');
 
 		$bits->applyXor(BitArray::fromString('010111'));
+	}
+
+	/**
+	 * Tests  BitArray::shift
+	 *
+	 * @return  void
+	 *
+	 * @covers  chdemko\BitArray\BitArray::shift
+	 *
+	 * @since   1.2.0
+	 */
+	public function testShift()
+	{
+		$bits = BitArray::fromString('10111');
+
+		$this->assertEquals(
+			'00101',
+			(string) $bits->shift(2)
+		);
+
+		$bits = BitArray::fromString('10111');
+
+		$this->assertEquals(
+			'01111',
+			(string) $bits->shift(-1, true)
+		);
 	}
 }

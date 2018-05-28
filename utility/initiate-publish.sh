@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$TRAVIS_REPO_SLUG" == "chdemko/php-bitarray" ] && [ "$TRAVIS_PHP_VERSION" == "5.5" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_REPO_SLUG" == "chdemko/php-bitarray" ] && [ "$TRAVIS_PHP_VERSION" == "7.1" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
   echo -e "Publishing code coverage to coveralls.io ...\n"
 
@@ -11,7 +11,6 @@ if [ "$TRAVIS_REPO_SLUG" == "chdemko/php-bitarray" ] && [ "$TRAVIS_PHP_VERSION" 
   echo -e "Publishing doc...\n"
 
   cp -R build/api $HOME/api-latest
-  cp -R build/coverage $HOME/coverage-latest
 
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
@@ -20,10 +19,7 @@ if [ "$TRAVIS_REPO_SLUG" == "chdemko/php-bitarray" ] && [ "$TRAVIS_PHP_VERSION" 
 
   cd gh-pages
   git rm -rf ./api
-  git rm -rf ./coverage
-  touch .nojekyll
   cp -Rf $HOME/api-latest ./api
-  cp -Rf $HOME/coverage-latest ./coverage
 
   git add -f .
   git commit -m "Latest doc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"

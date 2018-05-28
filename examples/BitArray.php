@@ -6,9 +6,9 @@
  * @package    BitArray
  *
  * @author     Christophe Demko <chdemko@gmail.com>
- * @copyright  Copyright (C) 2012-2016 Christophe Demko. All rights reserved.
+ * @copyright  Copyright (C) 2012-2018 Christophe Demko. All rights reserved.
  *
- * @license    http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html The CeCILL B license
+ * @license    BSD 3-Clause License
  *
  * This file is part of the php-bitarray package https://github.com/chdemko/php-bitarray
  */
@@ -26,7 +26,7 @@ $bits->applyComplement();
 echo $bits . PHP_EOL;
 
 // Print 11100
-$bits->applyXor(BitArray::fromTraversable([true, false, false, false, true]));
+$bits->applyXor(BitArray::fromTraversable(array(true, false, false, false, true)));
 echo $bits . PHP_EOL;
 
 // Print 11101

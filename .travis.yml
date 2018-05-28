@@ -1,25 +1,29 @@
 language: php
+
 php:
-- 5.5
-- 7.0
+  - 5.5
+  - 7.1
+
 before_install:
-- composer self-update
+  - composer self-update
+
 before_script:
-- sudo apt-get install graphviz
-- sudo apt-get install php5-xdebug
-- composer update
-- pear install PHP_CodeSniffer-1.5.6
-- git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
-- phpenv rehash
+  - sudo apt-get install graphviz
+  - sudo apt-get install php5-xdebug
+  - composer update
+
 script:
-- ant composervalidate
-- ant phpcs
-- ant phpunit
+  - ant composervalidate
+  - ant phpcs
+  - ant phpunit
+
 after_script:
-- utility/initiate-publish.sh
+  - utility/initiate-publish.sh
+
 after_success:
-- ant phpdoc
+  - ant phpdoc
+
 env:
   global:
-  - secure: "TTaLx3SfTTf0xycuAm1aQmKivLnuggcOmsm9Zgwlw/BXmclAVBVDh5RJm9qRgcLgxMcPFZ0lr95QW2xjir3pnNaKFxK5GFlV+5c5UKSn8eyZiPFXvILFTho+Jn2u76NGpxRkBjAYMv1aq4cxifXuZJ1hGsjXL9NNHRH96oknRwY="
+  - secure: "FBETwMr+BJTmuf/98Hz30K9Hk5G5T5fhfjWwRKfAnFWTdLKkiDDc8SsZdTWsZLiIWhrgahtBA/Xfld+V5rrUgT5MZvN2iMuJEnxMBoGntBWXeNt1BpeKKSWrwLONAVVJJ+JPwtIitCKR4ivxAHdYupTlkEAQDfn6c+mYNlwerq4="
 
