@@ -100,9 +100,9 @@ if you want to create local documentation with Sphinx.
 Citation
 --------
 
-If you are using this project including publication in research activities, you have to cite it using ([BibTeX format](https://raw.github.com/chdemko/php-bitarray/master/cite.bib)). You are also pleased to send me an email to chdemko@gmail.com.
+If you are using this project including publication in research activities, you have to cite it using ([BibTeX format](https://raw.github.com/chdemko/php-bitarray/develop/cite.bib)). You are also pleased to send me an email to chdemko@gmail.com.
 * authors: Christophe Demko
 * title: php-bitarray: a PHP library for handling bit arrays
 * year: 2014
-* how published: http://chdemko.github.io/php-bitarray
+* how published: https://packagist.org/packages/chdemko/bitarray/
 
