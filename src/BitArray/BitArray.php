@@ -27,11 +27,6 @@ namespace chdemko\BitArray;
 class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
 {
     /**
-     * @var BitArray  Empty bit array
-     */
-    private static $empty;
-
-    /**
      * @var integer[]  Number of bits for each value between 0 and 255
      */
     private static $count = array(
@@ -85,10 +80,10 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
         $this->size = (int) $size;
 
         if ($default) {
-            $this->data = str_repeat(chr(255), ceil($this->size / 8));
+            $this->data = str_repeat(chr(255), (int) ceil($this->size / 8));
             $this->restrict();
         } else {
-            $this->data = str_repeat(chr(0), ceil($this->size / 8));
+            $this->data = str_repeat(chr(0), (int) ceil($this->size / 8));
         }
     }
 
@@ -511,7 +506,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Create a new BitArray from a traversable
      *
-     * @param \Traversable $traversable A traversable and countable
+     * @param mixed $traversable A traversable and countable
      *
      * @return BitArray  A new BitArray
      *
