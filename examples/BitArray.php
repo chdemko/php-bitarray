@@ -3,12 +3,12 @@
 /**
  * BitArray example
  *
- * @package    BitArray
+ * @package BitArray
  *
- * @author     Christophe Demko <chdemko@gmail.com>
- * @copyright  Copyright (C) 2012-2018 Christophe Demko. All rights reserved.
+ * @author    Christophe Demko <chdemko@gmail.com>
+ * @copyright Copyright (C) 2012-2023 Christophe Demko. All rights reserved.
  *
- * @license    BSD 3-Clause License
+ * @license BSD 3-Clause License
  *
  * This file is part of the php-bitarray package https://github.com/chdemko/php-bitarray
  */
@@ -34,9 +34,8 @@ $bits[4] = true;
 echo $bits . PHP_EOL;
 
 // Print 0:1;1:1;2:1;3:;4:1;
-foreach ($bits as $index => $value)
-{
-	echo $index . ':' . $value . ';';
+foreach ($bits as $index => $value) {
+    echo $index . ':' . $value . ';';
 }
 
 echo PHP_EOL;
