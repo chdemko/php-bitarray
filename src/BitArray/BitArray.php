@@ -341,37 +341,26 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Copy bits from a BitArray
      *
+     * * if index is non-negative, the index parameter is used as it is,
+     *   keeping its real value between 0 and size-1;
+     * * if index is negative, the index parameter starts from the end,
+     *   keeping its real value between 0 and size-1.
+     *
+     * * if offset is non-negative, the offset parameter is used as it is,
+     *   keeping its positive value between 0 and size-1;
+     * * if offset is negative, the offset parameter starts from the end,
+     *   keeping its real value between 0 and size-1.
+     *
+     * * if size is given and is positive, then the copy will copy size elements.
+     * * if the bits argument is shorter than the size, then only the available elements will be copied.
+     * * if size is given and is negative, then the copy starts from the end.
+     * * if size is omitted, then the copy will have everything from offset up
+     *   until the end of the bits argument.
+     *
      * @param BitArray $bits   A BitArray to copy
      * @param int      $index  Starting index for destination.
-     *                         If index is non-negative, the
-     *                         index parameter is used as it
-     *                         is, keeping its real value
-     *                         between 0 and size-1. If index
-     *                         is negative, the index
-     *                         parameter starts from the end,
-     *                         keeping its real value between
-     *                         0 and size-1.
      * @param int      $offset Starting index for copying.
-     *                         If offset is non-negative,
-     *                         the offset parameter is
-     *                         used as it is, keeping its
-     *                         positive value between 0
-     *                         and size-1. If offset is
-     *                         negative, the offset
-     *                         parameter starts from the
-     *                         end, keeping its real value
-     *                         between 0 and size-1.
-     *
      * @param mixed    $size   Copy size.
-     *                         If size is given and is positive,
-     *                           then the copy will copy size elements.
-     *                         If the bits argument is shorter than the size,
-     *                           then only the available elements will be copied.
-     *                         If size is given and is negative
-     *                           then the copy starts from the end.
-     *                         If it is omitted,
-     *                           then the copy will have everything from offset up
-     *                           until the end of the bits argument.
      *
      * @return BitArray  This object for chaining
      *
@@ -393,10 +382,12 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Get the real offset using a positive or negative offset
      *
-     * @param int $offset If offset is non-negative, the offset parameter is used as it is,
-     *                       keeping its real value between 0 and size-1.
-     *                    If offset is negative, the offset parameter starts from the end,
-     *                       keeping its real value between 0 and size-1.
+     * * If offset is non-negative, the offset parameter is used as it is,
+     *   keeping its real value between 0 and size-1.
+     * * if offset is negative, the offset parameter starts from the end,
+     *   keeping its real value between 0 and size-1.
+     *
+     * @param int $offset The offset
      *
      * @return integer  The real offset
      *
@@ -423,13 +414,12 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Get the real offset using a positive or negative offset
      *
+     * * if size is given and is positive, then the real size will be between 0 and the current size-1.
+     * * if size is given and is negative, then the real size starts from the end.
+     * * if size is omitted, then the size goes until the end of the BitArray.
+     *
      * @param int   $offset The real offset.
-     * @param mixed $size   If size is given and is positive
-     *                        then the real size will be between 0 and the current size-1.
-     *                      If size is given and is negative
-     *                        then the real size starts from the end.
-     *                      If it is omitted
-     *                        then the size goes until the end of the BitArray.
+     * @param mixed $size   The size
      *
      * @return integer  The real size
      *
@@ -587,18 +577,19 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Create a new BitArray using a slice
      *
+     * * if offset is non-negative, the slice will start at that offset in the bits argument.
+     * * if offset is negative, the slice will start from the end of the bits argument.
+     *
+     * * if size is given and is positive, then the slice will have up to that many elements in it.
+     * * if the bits argument is shorter than the size, then only the available elements will be present.
+     * * if size is given and is negative,
+     *   then the slice will stop that many elements from the end of the bits argument.
+     * * if size is omitted,
+     *   then the slice will have everything from offset up until the end of the bits argument.
+     *
      * @param BitArray $bits   A BitArray to get the slice
-     * @param int      $offset If offset is non-negative, the slice will start at that offset in the bits argument.
-     *                         If offset is negative, the slice will start from the end of the bits argument.
-     * @param mixed    $size   If size is given and is positive,
-     *                           then the slice will have up to that many elements in it.
-     *                         If the bits argument is shorter than the size,
-     *                           then only the available elements will be present.
-     *                         If size is given and is negative
-     *                           then the slice will stop that many elements from
-     *                           the end of the bits argument.
-     *                         If it is omitted, then the slice will have everything from
-     *                           offset up until the end of the bits argument.
+     * @param int      $offset The offset
+     * @param mixed    $size   The size
      *
      * @return BitArray  A new BitArray
      *
@@ -732,9 +723,10 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
     /**
      * Shift a bit array.
      *
+     * Negative value means the shifting is done right to left
+     * while positive value means the shifting is done left to right.
+     *
      * @param int     $size  Size to shift.
-     *                       Negative value means the shifting is done right to left
-     *                       while positive value means the shifting is done left to right.
      *
      * @param boolean $value Value to shift
      *
