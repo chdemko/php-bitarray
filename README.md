@@ -1,6 +1,7 @@
 PHP BitArray
 ======================
-![PHP package](https://github.com/chdemko/php-bitarray/workflows/PHP%20Composer/badge.svg?branch=develop)
+
+[![PHP package](https://github.com/chdemko/php-bitarray/workflows/PHP%20Composer/badge.svg?branch=develop)](https://github.com/chdemko/php-bitarray/actions/workflows/php.yml)
 [![Documentation Status](https://img.shields.io/readthedocs/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/?badge=latest)
 [![Coveralls](https://img.shields.io/coveralls/chdemko/php-bitarray.svg)](https://coveralls.io/r/chdemko/php-bitarray?branch=develop)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/chdemko/php-bitarray/develop.svg)](https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=develop)
