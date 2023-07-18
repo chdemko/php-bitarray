@@ -1,15 +1,20 @@
 PHP BitArray
-======================
+============
 
 [![PHP package](https://github.com/chdemko/php-bitarray/workflows/PHP%20Composer/badge.svg?branch=develop)](https://github.com/chdemko/php-bitarray/actions/workflows/php.yml)
-[![Documentation Status](https://img.shields.io/readthedocs/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/?badge=latest)
 [![Coveralls](https://img.shields.io/coveralls/chdemko/php-bitarray.svg)](https://coveralls.io/r/chdemko/php-bitarray?branch=develop)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/chdemko/php-bitarray/develop.svg)](https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=develop)
+[![Code Climate](https://codeclimate.com/github/chdemko/php-bitarray/badges/gpa.svg)](https://codeclimate.com/github/chdemko/php-bitarray/)
+[![CodeFactor](https://www.codefactor.io/repository/github/chdemko/php-bitarray/badge)](https://www.codefactor.io/repository/github/chdemko/php-bitarray)
+[![Codacy](https://img.shields.io/codacy/grade/4f8e197cf7654a8fa33c5ffe6b55b050.svg?logo=codacy)](https://app.codacy.com/gh/chdemko/php-bitarray/dashboard)
 [![PHP versions](https://img.shields.io/packagist/dependency-v/chdemko/bitarray/php)](https://packagist.org/packages/chdemko/bitarray)
 [![Latest Stable Version](https://img.shields.io/packagist/v/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
-[![Packagist](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
+[![Downloads](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
 [![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.svg)](https://packagist.org/packages/chdemko/bitarray)
-[![License](https://poser.pugx.org/chdemko/bitarray/license.svg)](https://raw.githubusercontent.com/chdemko/php-bitarray/develop/LICENSE)
+[![License](https://img.shields.io/github/license/chdemko/php-bitarray.svg)](https://raw.githubusercontent.com/chdemko/php-bitarray/develop/LICENSE)
+[![Repo Size](https://img.shields.io/github/repo-size/chdemko/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/)
+[![Code Size](https://img.shields.io/github/languages/code-size/chdemko/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/)
+[![Documentation Status](https://img.shields.io/readthedocs/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/?badge=latest)
 
 BitArray for PHP.
 
