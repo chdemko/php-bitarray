@@ -12,9 +12,9 @@ PHP BitArray
 [![Downloads](https://img.shields.io/packagist/dt/chdemko/bitarray.svg)](https://packagist.org/packages/chdemko/bitarray)
 [![Latest Unstable Version](https://poser.pugx.org/chdemko/bitarray/v/unstable.svg)](https://packagist.org/packages/chdemko/bitarray)
 [![License](https://img.shields.io/github/license/chdemko/php-bitarray.svg)](https://raw.githubusercontent.com/chdemko/php-bitarray/develop/LICENSE)
+[![Documentation Status](https://img.shields.io/readthedocs/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/?badge=latest)
 [![Repo Size](https://img.shields.io/github/repo-size/chdemko/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/)
 [![Code Size](https://img.shields.io/github/languages/code-size/chdemko/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/)
-[![Documentation Status](https://img.shields.io/readthedocs/php-bitarray.svg)](http://php-bitarray.readthedocs.io/en/latest/?badge=latest)
 
 BitArray for PHP.
 
