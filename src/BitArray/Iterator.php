@@ -57,7 +57,7 @@ class Iterator implements \Iterator
      *
      * @since 1.0.0
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->index = 0;
     }
@@ -69,7 +69,7 @@ class Iterator implements \Iterator
      *
      * @since 1.0.0
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->index;
     }
@@ -81,7 +81,7 @@ class Iterator implements \Iterator
      *
      * @since 1.0.0
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->bits[$this->index];
     }
@@ -93,7 +93,7 @@ class Iterator implements \Iterator
      *
      * @since 1.0.0
      */
-    public function next()
+    public function next(): void
     {
         $this->index++;
     }
@@ -105,7 +105,7 @@ class Iterator implements \Iterator
      *
      * @since 1.0.0
      */
-    public function valid()
+    public function valid(): bool
     {
         return $this->index < $this->bits->size;
     }
