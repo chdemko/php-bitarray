@@ -169,7 +169,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return is_int($offset) && $offset >= 0 && $offset < $this->size;
     }
@@ -185,7 +185,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): bool
     {
         if ($this->offsetExists($offset)) {
             return (bool) (ord($this->data[(int) ($offset / 8)]) & (1 << $offset % 8));
@@ -206,7 +206,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if ($this->offsetExists($offset)) {
             $index = (int) ($offset / 8);
@@ -232,7 +232,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new \RuntimeException('Values cannot be unset');
     }
@@ -244,7 +244,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function count()
+    public function count(): int
     {
         $count = 0;
 
@@ -280,7 +280,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
@@ -292,7 +292,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
      *
      * @since 1.0.0
      */
-    public function getIterator()
+    public function getIterator(): Iterator
     {
         return new Iterator($this);
     }
