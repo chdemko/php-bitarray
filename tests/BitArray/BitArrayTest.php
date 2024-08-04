@@ -4,7 +4,7 @@
  * chdemko\BitArray\BitArrayTest class
  *
  * @author    Christophe Demko <chdemko@gmail.com>
- * @copyright Copyright (C) 2012-2023 Christophe Demko. All rights reserved.
+ * @copyright Copyright (C) 2012-2024 Christophe Demko. All rights reserved.
  *
  * @license BSD 3-Clause License
  *
@@ -14,6 +14,7 @@
 // Declare chdemko\BitArray namespace
 namespace chdemko\BitArray;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -30,11 +31,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::__clone
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::__clone')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testClone()
     {
         $bits = BitArray::fromString('1001');
@@ -90,12 +90,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::offsetExists
-     *
-     * @dataProvider casesOffsetExists
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesOffsetExists')]
+    #[CoversFunction('chdemko\BitArray\BitArray::offsetExists')]
     public function testOffsetExists($string, $offset, $expected)
     {
         $bits = BitArray::fromString($string);
@@ -144,12 +142,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::offsetGet
-     *
-     * @dataProvider casesOffsetGet
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesOffsetGet')]
+    #[CoversFunction('chdemko\BitArray\BitArray::offsetGet')]
     public function testOffsetGet($string, $offset, $expected, $exception)
     {
         $bits = BitArray::fromString($string);
@@ -203,12 +199,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::offsetSet
-     *
-     * @dataProvider casesOffsetSet
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesOffsetSet')]
+    #[CoversFunction('chdemko\BitArray\BitArray::offsetSet')]
     public function testOffsetSet($string, $offset, $value, $expected, $exception)
     {
         $bits = BitArray::fromString($string);
@@ -229,10 +223,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::offsetUnset
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::offsetUnset')]
     public function testOffsetUnset()
     {
         $bits = BitArray::fromString('10');
@@ -247,12 +240,11 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::count
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::fromInteger
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::count')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromInteger')]
     public function testCount()
     {
         $bits = BitArray::fromString('1001000011001100');
@@ -275,10 +267,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::__get
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::__get')]
     public function testGet()
     {
         $bits = BitArray::fromString('1001000011001100');
@@ -300,11 +291,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::jsonSerialize
-     * @covers chdemko\BitArray\BitArray::toArray
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::jsonSerialize')]
+    #[CoversFunction('chdemko\BitArray\BitArray::toArray')]
     public function testJsonSerialize()
     {
         $bits = BitArray::fromString('1001');
@@ -320,16 +310,15 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::getIterator
-     * @covers chdemko\BitArray\Iterator::__construct
-     * @covers chdemko\BitArray\Iterator::rewind
-     * @covers chdemko\BitArray\Iterator::key
-     * @covers chdemko\BitArray\Iterator::current
-     * @covers chdemko\BitArray\Iterator::next
-     * @covers chdemko\BitArray\Iterator::valid
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::getIterator')]
+    #[CoversFunction('chdemko\BitArray\Iterator::__construct')]
+    #[CoversFunction('chdemko\BitArray\Iterator::rewind')]
+    #[CoversFunction('chdemko\BitArray\Iterator::key')]
+    #[CoversFunction('chdemko\BitArray\Iterator::current')]
+    #[CoversFunction('chdemko\BitArray\Iterator::next')]
+    #[CoversFunction('chdemko\BitArray\Iterator::valid')]
     public function testGetIterator()
     {
         $bits = BitArray::fromString('1001');
@@ -347,10 +336,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::size
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::size')]
     public function testSize()
     {
         $bits = BitArray::fromString('1001');
@@ -390,15 +378,13 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::directCopy
-     * @covers chdemko\BitArray\BitArray::fromString
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
-     * @dataProvider casesDirectCopy
-     *
      * @since 1.1.0
      */
+    #[DataProvider('casesDirectCopy')]
+    #[CoversFunction('chdemko\BitArray\BitArray::directCopy')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromString')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testDirectCopy($string, $index, $offset, $size, $result, $exception)
     {
         $bits = BitArray::fromString($string);
@@ -449,17 +435,15 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::copy
-     * @covers chdemko\BitArray\BitArray::getRealOffset
-     * @covers chdemko\BitArray\BitArray::getRealSize
-     * @covers chdemko\BitArray\BitArray::fromString
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
-     * @dataProvider casesCopy
-     *
      * @since 1.1.0
      */
+    #[DataProvider('casesCopy')]
+    #[CoversFunction('chdemko\BitArray\BitArray::copy')]
+    #[CoversFunction('chdemko\BitArray\BitArray::getRealOffset')]
+    #[CoversFunction('chdemko\BitArray\BitArray::getRealSize')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromString')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testCopy($string, $index, $offset, $size, $result)
     {
         $bits = BitArray::fromString($string);
@@ -477,12 +461,11 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromInteger
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::fromInteger')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromInteger()
     {
         $bits = BitArray::fromInteger(10);
@@ -498,12 +481,11 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromDecimal
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
      * @since 1.2.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::fromDecimal')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromDecimal()
     {
         $bits = BitArray::fromDecimal(10, 255);
@@ -538,14 +520,12 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromTraversable
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
-     * @dataProvider casesFromTraversable
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesFromTraversable')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromTraversable')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromTraversable($traversable, $expected)
     {
         $bits = BitArray::fromTraversable($traversable);
@@ -580,14 +560,12 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromString
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
-     * @dataProvider casesFromString
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesFromString')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromString')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromString($string)
     {
         $bits = BitArray::fromString($string);
@@ -603,12 +581,11 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromJson
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
      * @since 1.1.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::fromJson')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromJson()
     {
         $bits = BitArray::fromJson('[true,false,false,true]');
@@ -704,14 +681,12 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromSlice
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
-     * @dataProvider casesFromSlice
-     *
      * @since 1.0.0
      */
+    #[DataProvider('casesFromSlice')]
+    #[CoversFunction('chdemko\BitArray\BitArray::fromSlice')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromSlice($string, $offset, $size, $result)
     {
         $this->assertEquals(
@@ -725,12 +700,11 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::fromConcat
-     * @covers chdemko\BitArray\BitArray::__construct
-     * @covers chdemko\BitArray\BitArray::__toString
-     *
      * @since 1.1.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::fromConcat')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__construct')]
+    #[CoversFunction('chdemko\BitArray\BitArray::__toString')]
     public function testFromConcat()
     {
         $bits1 = BitArray::fromString('1001');
@@ -751,11 +725,10 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::applyComplement
-     * @covers chdemko\BitArray\BitArray::restrict
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::applyComplement')]
+    #[CoversFunction('chdemko\BitArray\BitArray::restrict')]
     public function testApplyComplement()
     {
         $bits = BitArray::fromString('10011');
@@ -779,10 +752,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::applyOr
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::applyOr')]
     public function testApplyOr()
     {
         $bits = BitArray::fromString('10011');
@@ -802,10 +774,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::applyAnd
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::applyAnd')]
     public function testApplyAnd()
     {
         $bits = BitArray::fromString('10011');
@@ -825,10 +796,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::applyXor
-     *
      * @since 1.0.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::applyXor')]
     public function testApplyXor()
     {
         $bits = BitArray::fromString('10011');
@@ -848,10 +818,9 @@ class BitArrayTest extends TestCase
      *
      * @return void
      *
-     * @covers chdemko\BitArray\BitArray::shift
-     *
      * @since 1.2.0
      */
+    #[CoversFunction('chdemko\BitArray\BitArray::shift')]
     public function testShift()
     {
         $bits = BitArray::fromString('10111');
