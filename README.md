@@ -35,7 +35,7 @@ It also provides methods for bitwise logical operations between two bit arrays `
 
 This project uses:
 
-* [PHP Code Sniffer](https://github.com/squizlabs/php_codesniffer) for checking PHP code style
+* [PHP Code Sniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer) for checking PHP code style
 * [PHPUnit](http://phpunit.de/) for unit test (100% covered)
 * [Sphinx](https://www.sphinx-doc.org/) and [Doxygen](https://www.doxygen.nl/) for the
   [documentation](http://php-sorted-collections.readthedocs.io/en/latest/?badge=latest)
