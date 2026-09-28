@@ -748,6 +748,41 @@ class BitArrayTest extends TestCase
     }
 
     /**
+     * Tests BitArray::applyComplement does not trigger a deprecation on PHP 8.5
+     *
+     * @return void
+     */
+    public function testApplyComplementDoesNotTriggerDeprecation()
+    {
+        if (PHP_VERSION_ID < 80500) {
+            $this->markTestSkipped('This test requires PHP 8.5 or later');
+        }
+
+        set_error_handler(
+            static function (
+                int $severity,
+                string $message,
+                string $filename,
+                int $line
+            ): never {
+                throw new \ErrorException($message, 0, $severity, $filename, $line);
+            },
+            E_DEPRECATED
+        );
+
+        try {
+            $bits = BitArray::fromString('10011');
+
+            $this->assertEquals(
+                '01100',
+                (string) $bits->applyComplement()
+            );
+        } finally {
+            restore_error_handler();
+        }
+    }
+
+    /**
      * Tests  BitArray::applyOr
      *
      * @return void
