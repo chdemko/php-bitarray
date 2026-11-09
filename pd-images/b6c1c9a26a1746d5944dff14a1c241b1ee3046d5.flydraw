@@ -1,0 +1,13 @@
+comment x=horizontal, x=0 is left
+comment y=vertical,   y=0 is top
+new 300,300
+x0=150
+y0=150
+r=100
+t1=0
+t2=t1+2*pi
+linewidth=1
+plotstep 8
+trange t1,t2
+plot red,r*cos(t)+x0,r*sin(t)+y0
+plot green,r*0.5*cos(t)+x0,r*0.5*sin(t)+y0

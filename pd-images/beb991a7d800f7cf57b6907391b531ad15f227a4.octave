@@ -1,0 +1,6 @@
+figure(1, 'visible', 'off');
+
+contourf(peaks);
+title("peaks");
+
+print(1, argv(){1});

@@ -11,6 +11,8 @@
  * This file is part of the php-bitarray package https://github.com/chdemko/php-bitarray
  */
 
+declare(strict_types=1);
+
 // Declare chdemko\BitArray namespace
 namespace chdemko\BitArray;
 
@@ -636,7 +638,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
         $length = strlen($this->data);
 
         for ($index = 0; $index < $length; $index++) {
-            $this->data[$index] = chr(~ ord($this->data[$index]));
+            $this->data[$index] = chr((~ ord($this->data[$index])) & 0xFF);
         }
 
         return $this->restrict();

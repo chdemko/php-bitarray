@@ -1,10 +1,9 @@
 PHP BitArray
 ============
 
-[![PHP package](https://github.com/chdemko/php-bitarray/workflows/PHP%20Composer/badge.svg?branch=develop)](https://github.com/chdemko/php-bitarray/actions/workflows/php.yml)
+[![PHP package](https://img.shields.io/github/actions/workflow/status/chdemko/php-bitarray/php.yml?logo=github&branch=develop)](https://github.com/chdemko/php-bitarray/actions/workflows/php.yml)
 [![Coveralls](https://img.shields.io/coveralls/chdemko/php-bitarray.svg?logo=Codecov&logoColor=white)](https://coveralls.io/r/chdemko/php-bitarray?branch=develop)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/chdemko/php-bitarray/develop.svg?logo=scrutinizer)](https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=develop)
-[![Code Climate](https://codeclimate.com/github/chdemko/php-bitarray/badges/gpa.svg)](https://codeclimate.com/github/chdemko/php-bitarray/)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/chdemko/php-bitarray/develop.svg?logo=codefactor)](https://www.codefactor.io/repository/github/chdemko/php-bitarray)
 [![Codacy](https://img.shields.io/codacy/grade/4f8e197cf7654a8fa33c5ffe6b55b050.svg?logo=codacy)](https://app.codacy.com/gh/chdemko/php-bitarray/dashboard)
 [![PHP versions](https://img.shields.io/packagist/dependency-v/chdemko/bitarray/php?logo=php&logoColor=white)](https://packagist.org/packages/chdemko/bitarray)
@@ -35,7 +34,7 @@ It also provides methods for bitwise logical operations between two bit arrays `
 
 This project uses:
 
-* [PHP Code Sniffer](https://github.com/squizlabs/php_codesniffer) for checking PHP code style
+* [PHP Code Sniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer) for checking PHP code style
 * [PHPUnit](http://phpunit.de/) for unit test (100% covered)
 * [Sphinx](https://www.sphinx-doc.org/) and [Doxygen](https://www.doxygen.nl/) for the
   [documentation](http://php-sorted-collections.readthedocs.io/en/latest/?badge=latest)

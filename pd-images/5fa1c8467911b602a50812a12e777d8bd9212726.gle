@@ -1,0 +1,28 @@
+size 10 7
+
+set texlabels 1
+
+begin graph
+   scale auto
+   title  "Semi-Transparent Fills"
+   xtitle "Time"
+   ytitle "Output"
+   xaxis min 0 max 9
+   yaxis min 0 max 6 dticks 1
+   let d1 = sin(x)*1.5+1.5 from 0 to 10
+   let d2 = 1/x from 0.01 to 10
+   let d3 = 10*(1/sqrt(2*pi))*exp(-2*(sqr(x-4)/sqr(2))) from 0 to 10
+   key background gray5
+   begin layer 300
+      fill x1,d1 color rgba255(255,0,0,80)
+      d1 line color red key "$1.5\sin(x)+1.5$"
+   end layer
+   begin layer 301
+      fill x1,d2 color rgba255(0,128,0,80)
+      d2 line color green key "$1/x$"
+   end layer
+   begin layer 302
+      fill x1,d3 color rgba255(0,0,255,80)
+      d3 line color blue key "$\frac{10}{\sqrt{2\pi}}\exp\left(\frac{-2(x-4)^2}{2^2}\right)$"
+   end layer
+end graph

@@ -1,0 +1,32 @@
+! An H-Bridge
+
+size 13 11
+include "electronics.gle"
+
+set lwidth 0.05 cap round font psh
+
+! Draw a grid if the line below is uncommented
+drawgrid 1
+
+! Top left of diagram
+amove 2.0 9.0
+
+! Battery leg
+gsave
+rline 0 -0.5
+cell_v "E_1"
+rline 0 -3.5
+rline 5 0
+rresistor_h R_4
+grestore
+
+rresistor_h R_1
+
+gsave
+rresistor_v R_2
+cell_v "E_2"
+grestore
+
+rline 5 0
+rresistor_v R_3
+rline 0 -4

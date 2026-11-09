@@ -1,0 +1,22 @@
+define-axis-style '.grid-non-left axis.left' /decoration=ticks /axis-label-text=' '
+define-axis-style '.grid-non-bottom axis.bottom' /decoration=ticks /axis-label-text=' '
+define-background-style '.grid-odd-column background' /background-color Blue!15
+define-axis-style '.grid-2-0 axis' /decoration=None
+
+setup-grid 3x2 /top=1mm /right=2mm /dy=2mm /dx=2mm
+math 
+    
+
+inset grid:next
+  plot sin(x)
+next-inset grid:next
+  plot cos(x)
+next-inset grid:next
+  plot -cos(x)
+next-inset grid:next
+  plot x**2
+next-inset grid:next
+  plot 10*x
+next-inset grid:next
+  plot 0.1*x**3
+end
