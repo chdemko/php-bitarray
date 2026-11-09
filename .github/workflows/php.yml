@@ -70,7 +70,7 @@ jobs:
       run: composer run test
 
     - name: Upload coverage results to Coveralls
+      if: ${{ env.COVERALLS_REPO_TOKEN != '' }}
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: vendor/bin/php-coveralls --coverage_clover=build/logs/clover.xml -v
-
