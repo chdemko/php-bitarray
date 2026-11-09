@@ -636,7 +636,7 @@ class BitArray implements \ArrayAccess, \Countable, \IteratorAggregate, \JsonSer
         $length = strlen($this->data);
 
         for ($index = 0; $index < $length; $index++) {
-            $this->data[$index] = chr(~ ord($this->data[$index]));
+            $this->data[$index] = chr((~ ord($this->data[$index])) & 0xFF);
         }
 
         return $this->restrict();
