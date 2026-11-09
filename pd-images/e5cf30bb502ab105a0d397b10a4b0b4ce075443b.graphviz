@@ -1,5 +1,0 @@
-
-digraph {
- blockcode -> fdp;
- fdp -> image;
- }
