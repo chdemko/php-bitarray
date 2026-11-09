@@ -1,7 +1,7 @@
 {
 	"name": "chdemko/bitarray",
 	"type": "library",
-	"description": "BitArray for PHP >= 8.3",
+	"description": "BitArray for PHP >= 8.4",
 	"keywords": ["bits","array","iterator"],
 	"homepage": "http://github.com/chdemko/php-bitarray",
 	"license": "BSD-3-Clause",
@@ -14,7 +14,7 @@
 		}
 	],
 	"require": {
-		"php": ">=8.3"
+		"php": ">=8.4"
 	},
 	"require-dev": {
 		"php-coveralls/php-coveralls": "^2.9",
