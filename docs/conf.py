@@ -26,7 +26,7 @@ subprocess.call('doxygen Doxyfile', shell=True)
 # -- Project information -----------------------------------------------------
 
 project = 'PHP BitArray'
-copyright = '2024, Ch. Demko'
+copyright = '2026, Ch. Demko'
 author = 'Ch. Demko'
 
 # The short X.Y version
