@@ -1,0 +1,13 @@
+outname = argv(){1}
+figure(1, 'visible', 'off');
+
+x = 0:0.01:2*pi;
+a = sin(x);
+b = cos(2*x);
+c = sin(4*x);
+d = 2*sin(3*x);
+plot(x,a,x,b,x,c,x,d, "linewidth", 2);
+set(gca, "xlim", [0,2*pi], "fontsize", 15);
+title("sinusoids");
+
+print(1, outname, '-dpng');

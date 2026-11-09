@@ -1,0 +1,10 @@
+{
+   A -> B -> C -> D;
+
+  lane foo {
+    A; B;
+  }
+  lane bar {
+    C; D;
+  }
+}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacechdemko_1_1BitArray" kind="namespace" language="PHP">
+    <compoundname>chdemko::BitArray</compoundname>
+    <innerclass refid="classchdemko_1_1BitArray_1_1BitArray" prot="public">chdemko::BitArray::BitArray</innerclass>
+    <innerclass refid="classchdemko_1_1BitArray_1_1Iterator" prot="public">chdemko::BitArray::Iterator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>chdemko\BitArray\BitArray class</para>
+<para><simplesect kind="author"><para>Christophe Demko <ulink url="mailto:chdemko@gmail.com">chdemko@gmail.com</ulink> </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (C) 2012-2023 Christophe Demko. All rights reserved.</para>
+</simplesect>
+@license BSD 3-Clause License</para>
+<para>This file is part of the php-bitarray package <ulink url="https://github.com/chdemko/php-bitarray">https://github.com/chdemko/php-bitarray</ulink></para>
+<para>chdemko\BitArray\Iterator class</para>
+<para><simplesect kind="author"><para>Christophe Demko <ulink url="mailto:chdemko@gmail.com">chdemko@gmail.com</ulink> </para>
+</simplesect>
+<simplesect kind="copyright"><para>Copyright (C) 2012-2023 Christophe Demko. All rights reserved.</para>
+</simplesect>
+@license BSD 3-Clause License</para>
+<para>This file is part of the php-bitarray package <ulink url="https://github.com/chdemko/php-bitarray">https://github.com/chdemko/php-bitarray</ulink> </para>
+    </detaileddescription>
+    <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="15" column="10"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "This script is saved as :" $0
+echo "and requires boxes to be available"
+echo
+echo "Its (user) executable flag is set:"
+echo
+echo $(ls -lpah $0 | tr -s ' ' | cut -d' ' -f1,9) | boxes -d peek
+echo
+echo "This script won't produce: $1"
+echo
+echo "But since 'im_out'-option above includes a request for img,"
+echo "a line is included in the output document, like:"
+echo
+echo "?? missing ${1}"
+echo
+echo "If a shebang script returns with an exit code other than 0 (zero)"
+echo "the command fails and the original code block is retained"
+echo
+echo "If im_out=".." includes 'stdout' (like in this case), any text"
+echo "on stdout is included in its own CodeBlock"

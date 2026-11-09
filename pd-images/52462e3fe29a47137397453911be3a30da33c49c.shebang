@@ -1,0 +1,2 @@
+#!/bin/bash
+MANWIDTH=85 man 6 figlist | col -bx | iconv -t ascii//TRANSLIT

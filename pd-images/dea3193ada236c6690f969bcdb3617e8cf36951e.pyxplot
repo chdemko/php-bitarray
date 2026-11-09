@@ -1,0 +1,17 @@
+set terminal png
+set output pd-images/dea3193ada236c6690f969bcdb3617e8cf36951e.png
+set numerics complex
+set xlabel r"$x$"
+set ylabel r"$y$"
+set zlabel r"$z$"
+set xformat r"%s$\pi$"%(x/pi)
+set yformat r"%s$\pi$"%(y/pi)
+set xtics 3*pi ; set mxtics pi
+set ytics 3*pi ; set mytics pi
+set ztics 
+set key below
+set size 6 square
+set grid
+plot 3d [-6*pi:6*pi][-6*pi:6*pi][-0.3:1] sinc(hypot(x,y)) \
+     with surface col black \
+     fillcol hsb(atan2($1,$2)/(2*pi)+0.5,hypot($1,$2)/30+0.2,$3*0.5+0.5)

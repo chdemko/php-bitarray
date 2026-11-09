@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHP BitArray &mdash; PHP BitArray 1.0.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=46dfa7f5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API documentation" href="api.html" />
+    <link rel="prev" title="Welcome to PHP BitArray documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PHP BitArray
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instructions">Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citation">Citation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PHP BitArray</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PHP BitArray</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="php-bitarray">
+<h1>PHP BitArray<a class="headerlink" href="#php-bitarray" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://github.com/chdemko/php-bitarray/actions/workflows/php.yml"><img alt="PHP package" src="https://github.com/chdemko/php-bitarray/workflows/PHP%20Composer/badge.svg?branch=develop" /></a>
+<a class="reference external" href="https://coveralls.io/r/chdemko/php-bitarray?branch=develop"><img alt="Coveralls" src="https://img.shields.io/coveralls/chdemko/php-bitarray.svg?logo=Codecov&amp;logoColor=white" /></a>
+<a class="reference external" href="https://scrutinizer-ci.com/g/chdemko/php-bitarray/?branch=develop"><img alt="Scrutinizer" src="https://img.shields.io/scrutinizer/g/chdemko/php-bitarray/develop.svg?logo=scrutinizer" /></a>
+<a class="reference external" href="https://codeclimate.com/github/chdemko/php-bitarray/"><img alt="Code Climate" src="https://codeclimate.com/github/chdemko/php-bitarray/badges/gpa.svg" /></a>
+<a class="reference external" href="https://www.codefactor.io/repository/github/chdemko/php-bitarray"><img alt="CodeFactor" src="https://img.shields.io/codefactor/grade/github/chdemko/php-bitarray/develop.svg?logo=codefactor" /></a>
+<a class="reference external" href="https://app.codacy.com/gh/chdemko/php-bitarray/dashboard"><img alt="Codacy" src="https://img.shields.io/codacy/grade/4f8e197cf7654a8fa33c5ffe6b55b050.svg?logo=codacy" /></a>
+<a class="reference external" href="https://packagist.org/packages/chdemko/bitarray"><img alt="PHP versions" src="https://img.shields.io/packagist/dependency-v/chdemko/bitarray/php?logo=php&amp;logoColor=white" /></a>
+<a class="reference external" href="https://packagist.org/packages/chdemko/bitarray"><img alt="Latest Stable Version" src="https://img.shields.io/packagist/v/chdemko/bitarray.svg?logo=packagist&amp;logoColor=white" /></a>
+<a class="reference external" href="https://packagist.org/packages/chdemko/bitarray"><img alt="Downloads" src="https://img.shields.io/packagist/dt/chdemko/bitarray.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cgo8c3ZnCiAgIHdpZHRoPSI4MDBweCIKICAgaGVpZ2h0PSI4MDBweCIKICAgdmlld0JveD0iMCAwIDI0IDI0IgogICBmaWxsPSJub25lIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmc0IgogICBzb2RpcG9kaTpkb2NuYW1lPSJkb3dubG9hZC1zdmdyZXBvLWNvbS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMS4yICgwYTAwY2Y1MzM5LCAyMDIyLTAyLTA0KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzOCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzYiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC44OTg3NSIKICAgICBpbmtzY2FwZTpjeD0iNDAwIgogICAgIGlua3NjYXBlOmN5PSIzOTkuNDQzNjciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjExNjMiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc0IiAvPgogIDxwYXRoCiAgICAgZmlsbC1ydWxlPSJldmVub2RkIgogICAgIGNsaXAtcnVsZT0iZXZlbm9kZCIKICAgICBkPSJNOCAxMEM4IDcuNzkwODYgOS43OTA4NiA2IDEyIDZDMTQuMjA5MSA2IDE2IDcuNzkwODYgMTYgMTBWMTFIMTdDMTguOTMzIDExIDIwLjUgMTIuNTY3IDIwLjUgMTQuNUMyMC41IDE2LjQzMyAxOC45MzMgMTggMTcgMThIMTYuOUMxNi4zNDc3IDE4IDE1LjkgMTguNDQ3NyAxNS45IDE5QzE1LjkgMTkuNTUyMyAxNi4zNDc3IDIwIDE2LjkgMjBIMTdDMjAuMDM3NiAyMCAyMi41IDE3LjUzNzYgMjIuNSAxNC41QzIyLjUgMTEuNzc5MyAyMC41MjQ1IDkuNTE5OTcgMTcuOTI5NiA5LjA3ODI0QzE3LjQ4NjIgNi4yMDIxMyAxNS4wMDAzIDQgMTIgNEM4Ljk5OTc0IDQgNi41MTM4MSA2LjIwMjEzIDYuMDcwMzYgOS4wNzgyNEMzLjQ3NTUxIDkuNTE5OTcgMS41IDExLjc3OTMgMS41IDE0LjVDMS41IDE3LjUzNzYgMy45NjI0MyAyMCA3IDIwSDcuMUM3LjY1MjI4IDIwIDguMSAxOS41NTIzIDguMSAxOUM4LjEgMTguNDQ3NyA3LjY1MjI4IDE4IDcuMSAxOEg3QzUuMDY3IDE4IDMuNSAxNi40MzMgMy41IDE0LjVDMy41IDEyLjU2NyA1LjA2NyAxMSA3IDExSDhWMTBaTTEzIDExQzEzIDEwLjQ0NzcgMTIuNTUyMyAxMCAxMiAxMEMxMS40NDc3IDEwIDExIDEwLjQ0NzcgMTEgMTFWMTYuNTg1OEw5LjcwNzExIDE1LjI5MjlDOS4zMTY1OCAxNC45MDI0IDguNjgzNDIgMTQuOTAyNCA4LjI5Mjg5IDE1LjI5MjlDNy45MDIzNyAxNS42ODM0IDcuOTAyMzcgMTYuMzE2NiA4LjI5Mjg5IDE2LjcwNzFMMTEuMjkyOSAxOS43MDcxQzExLjY4MzQgMjAuMDk3NiAxMi4zMTY2IDIwLjA5NzYgMTIuNzA3MSAxOS43MDcxTDE1LjcwNzEgMTYuNzA3MUMxNi4wOTc2IDE2LjMxNjYgMTYuMDk3NiAxNS42ODM0IDE1LjcwNzEgMTUuMjkyOUMxNS4zMTY2IDE0LjkwMjQgMTQuNjgzNCAxNC45MDI0IDE0LjI5MjkgMTUuMjkyOUwxMyAxNi41ODU4VjExWiIKICAgICBmaWxsPSIjMDAwMDAwIgogICAgIGlkPSJwYXRoMiIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmIiAvPgo8L3N2Zz4K" /></a>
+<a class="reference external" href="https://packagist.org/packages/chdemko/bitarray"><img alt="Latest Unstable Version" src="https://poser.pugx.org/chdemko/bitarray/v/unstable.svg" /></a>
+<a class="reference external" href="https://raw.githubusercontent.com/chdemko/php-bitarray/develop/LICENSE"><img alt="License" src="https://img.shields.io/github/license/chdemko/php-bitarray.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cgo8c3ZnCiAgIGhlaWdodD0iODAwcHgiCiAgIHdpZHRoPSI4MDBweCIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iX3gzMl8iCiAgIHZpZXdCb3g9IjAgMCA1MTIgNTEyIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBzb2RpcG9kaTpkb2NuYW1lPSJiYWxhbmNlLTEtc3ZncmVwby1jb20uc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEuMiAoMGEwMGNmNTMzOSwgMjAyMi0wMi0wNCkiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnMKICAgaWQ9ImRlZnMzMzg2IiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgaWQ9Im5hbWVkdmlldzMzODQiCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBpbmtzY2FwZTp6b29tPSIwLjg5ODc1IgogICBpbmtzY2FwZTpjeD0iNDAwIgogICBpbmtzY2FwZTpjeT0iMzk5LjQ0MzY3IgogICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjExNjMiCiAgIGlua3NjYXBlOndpbmRvdy14PSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3cteT0iMCIKICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0iX3gzMl8iIC8+CjxzdHlsZQogICB0eXBlPSJ0ZXh0L2NzcyIKICAgaWQ9InN0eWxlMzM3NyI+Cgkuc3Qwe2ZpbGw6IzAwMDAwMDt9Cjwvc3R5bGU+CjxnCiAgIGlkPSJnMzM4MSIKICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiI+Cgk8cGF0aAogICBjbGFzcz0ic3QwIgogICBkPSJNNTAwLjYwOSwzMjIuMjc1bC01Ny40MjgtMTYyLjgzNGMwLjEzNSwwLjAwOCwwLjI3OSwwLjAyNSwwLjQwNiwwLjAyNSAgIGMzOS41MzgsMC42NzcsNDkuNDIyLTIwLjU4LDU0LjU2Ni0yNy45NGM3LjExOC0xMC4xNzEtNy45MS0yMC4zNDMtMTUuODE2LTEzLjU1OGMtNy45MDYsNi43NzUtMjkuMjY0LDIxLjAxMS03MC4zODYsMi4wMjQgICBDMzc0Ljg3NCwxMDIuODc1LDMwOS44Nyw3My4wOTgsMjcxLjkyLDY3LjM5OXYtMzljMC04Ljc5OS03LjEyNy0xNS45MjEtMTUuOTE4LTE1LjkyMWMtOC43OTUsMC0xNS45MjIsNy4xMjItMTUuOTIyLDE1LjkyMXYzOSAgIGMtMzcuOTUsNS42OTktMTAyLjk1MywzNS40NzYtMTQwLjAzMSw1Mi41OTNjLTQxLjEyMSwxOC45ODctNjIuNDgsNC43NTEtNzAuMzg2LTIuMDI0Yy03LjkwNi02Ljc4NC0yMi45MzUsMy4zODgtMTUuODE2LDEzLjU1OCAgIGM1LjE0NSw3LjM2LDE1LjAyOCwyOC42MTcsNTQuNTY2LDI3Ljk0YzAuMTMyLDAsMC4yNzYtMC4wMTcsMC40MDItMC4wMjVMMTEuMzkxLDMyMi4yNzVIMCAgIGMxMS40OTcsMzguMDI1LDQ2LjgwNCw2NS43MzYsODguNTk1LDY1LjczNmM0MS43ODYsMCw3Ny4wOTMtMjcuNzExLDg4LjU5LTY1LjczNmgtMTEuMzg2bC02MC4zNTUtMTcxLjEzNCAgIGMzNy4xODMtMTEuNDY3LDg5LjU2OS0zMS4wNTYsMTM0LjYzNi0zNC4wNzJ2MjQuMjNoLTguNTA3djI2Ny43NDhIMjE4LjM3djIzLjg1OGMtOC43MTUsMC0xNy41NjksMC0yNC44NzQsMCAgIGMtMjMuMzU0LDAtMjIuNjYzLDMyLjk2OS0yMi42NjMsMzIuOTY5Yy0xOS4yMzMsMC0yOC44NSwxNS4xMDEtMjguODUsMzMuNjQ4aDIyOC4wMzNjMC0xOC41NDYtOS42MTYtMzMuNjQ4LTI4Ljg0NS0zMy42NDggICBjMCwwLDAuNjg2LTMyLjk2OS0yMi42NjgtMzIuOTY5Yy03LjMwNSwwLTE2LjE1OSwwLTI0Ljg3NCwwdi0yMy44NThoLTEzLjIwM1YxNDEuM2gtOC41MDd2LTI0LjIzICAgYzQ1LjA3MiwzLjAxNSw5Ny40NTcsMjIuNjA0LDEzNC42NCwzNC4wNzJsLTYwLjM1OCwxNzEuMTM0aC0xMS4zODdjMTEuNDk2LDM4LjAyNSw0Ni44MDQsNjUuNzM2LDg4LjU5LDY1LjczNiAgIGM0MS43OSwwLDc3LjA5OC0yNy43MTEsODguNTk0LTY1LjczNkg1MDAuNjA5eiBNMTQxLjI0MywzMjIuMjc1SDM1Ljk0OEw4OC41OTUsMTczTDE0MS4yNDMsMzIyLjI3NXogTTM3MC43NTgsMzIyLjI3NUw0MjMuNDEsMTczICAgbDUyLjY0MywxNDkuMjc1SDM3MC43NTh6IgogICBpZD0icGF0aDMzNzkiCiAgIHN0eWxlPSJmaWxsOiNmZmZmZmYiIC8+CjwvZz4KPC9zdmc+Cg==" /></a>
+<a class="reference external" href="https://github.com/chdemko/php-bitarray/commit/develop/"><img alt="Last commit" src="https://img.shields.io/github/last-commit/chdemko/php-bitarray/develop?logo=github" /></a>
+<a class="reference external" href="http://php-bitarray.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://img.shields.io/readthedocs/php-bitarray.svg?logo=read-the-docs&amp;logoColor=white" /></a>
+<a class="reference external" href="http://php-bitarray.readthedocs.io/en/latest/"><img alt="Repo Size" src="https://img.shields.io/github/repo-size/chdemko/php-bitarray.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cgo8c3ZnCiAgIGZpbGw9IiMwMDAwMDAiCiAgIHdpZHRoPSI4MDBweCIKICAgaGVpZ2h0PSI4MDBweCIKICAgdmlld0JveD0iMCAwIDI0IDI0IgogICBkYXRhLW5hbWU9IkxheWVyIDEiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzE0NzYiCiAgIHNvZGlwb2RpOmRvY25hbWU9IndlaWdodC1zdmdyZXBvLWNvbS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMS4yICgwYTAwY2Y1MzM5LCAyMDIyLTAyLTA0KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzMTQ4MCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzE0NzgiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC44OTg3NSIKICAgICBpbmtzY2FwZTpjeD0iNDAwIgogICAgIGlua3NjYXBlOmN5PSIzOTkuNDQzNjciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjExNjMiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmcxNDc2IiAvPgogIDxwYXRoCiAgICAgZD0iTTE5LDRIMTcuNTVBMy4wOCwzLjA4LDAsMCwwLDE3LDNhMywzLDAsMCwwLTIuMjUtMUg5LjI3QTMsMywwLDAsMCw3LDNhMy4wOCwzLjA4LDAsMCwwLS41NywxSDVBMywzLDAsMCwwLDIsN1YxOWEzLDMsMCwwLDAsMywzSDE5YTMsMywwLDAsMCwzLTNWN0EzLDMsMCwwLDAsMTksNFpNOC41Miw0LjM0QTEsMSwwLDAsMSw5LjI3LDRoNS40NmExLDEsMCwwLDEsLjc1LjM0LDEsMSwwLDAsMSwuMjUuNzhsLS41LDRhMSwxLDAsMCwxLTEsLjg4SDEyLjU5bDEuMTQtMi40YTEsMSwwLDAsMC0xLjgtLjg2TDEwLjM3LDEwaC0uNmExLDEsMCwwLDEtMS0uODhsLS41LTRBMSwxLDAsMCwxLDguNTIsNC4zNFpNMjAsMTlhMSwxLDAsMCwxLTEsMUg1YTEsMSwwLDAsMS0xLTFWN0ExLDEsMCwwLDEsNSw2SDYuMzdsLjQyLDMuMzdhMywzLDAsMCwwLDMsMi42M2g0LjQ2YTMsMywwLDAsMCwzLTIuNjNMMTcuNjMsNkgxOWExLDEsMCwwLDEsMSwxWm0tNi0zSDEwYTEsMSwwLDAsMCwwLDJoNGExLDEsMCwwLDAsMC0yWiIKICAgICBpZD0icGF0aDE0NzQiCiAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KPC9zdmc+Cg==" /></a>
+<a class="reference external" href="http://php-bitarray.readthedocs.io/en/latest/"><img alt="Code Size" src="https://img.shields.io/github/languages/code-size/chdemko/php-bitarray.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cgo8c3ZnCiAgIGZpbGw9IiMwMDAwMDAiCiAgIHdpZHRoPSI4MDBweCIKICAgaGVpZ2h0PSI4MDBweCIKICAgdmlld0JveD0iMCAwIDI0IDI0IgogICBkYXRhLW5hbWU9IkxheWVyIDEiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzE0NzYiCiAgIHNvZGlwb2RpOmRvY25hbWU9IndlaWdodC1zdmdyZXBvLWNvbS5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMS4yICgwYTAwY2Y1MzM5LCAyMDIyLTAyLTA0KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzMTQ4MCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzE0NzgiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMC44OTg3NSIKICAgICBpbmtzY2FwZTpjeD0iNDAwIgogICAgIGlua3NjYXBlOmN5PSIzOTkuNDQzNjciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjExNjMiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmcxNDc2IiAvPgogIDxwYXRoCiAgICAgZD0iTTE5LDRIMTcuNTVBMy4wOCwzLjA4LDAsMCwwLDE3LDNhMywzLDAsMCwwLTIuMjUtMUg5LjI3QTMsMywwLDAsMCw3LDNhMy4wOCwzLjA4LDAsMCwwLS41NywxSDVBMywzLDAsMCwwLDIsN1YxOWEzLDMsMCwwLDAsMywzSDE5YTMsMywwLDAsMCwzLTNWN0EzLDMsMCwwLDAsMTksNFpNOC41Miw0LjM0QTEsMSwwLDAsMSw5LjI3LDRoNS40NmExLDEsMCwwLDEsLjc1LjM0LDEsMSwwLDAsMSwuMjUuNzhsLS41LDRhMSwxLDAsMCwxLTEsLjg4SDEyLjU5bDEuMTQtMi40YTEsMSwwLDAsMC0xLjgtLjg2TDEwLjM3LDEwaC0uNmExLDEsMCwwLDEtMS0uODhsLS41LTRBMSwxLDAsMCwxLDguNTIsNC4zNFpNMjAsMTlhMSwxLDAsMCwxLTEsMUg1YTEsMSwwLDAsMS0xLTFWN0ExLDEsMCwwLDEsNSw2SDYuMzdsLjQyLDMuMzdhMywzLDAsMCwwLDMsMi42M2g0LjQ2YTMsMywwLDAsMCwzLTIuNjNMMTcuNjMsNkgxOWExLDEsMCwwLDEsMSwxWm0tNi0zSDEwYTEsMSwwLDAsMCwwLDJoNGExLDEsMCwwLDAsMC0yWiIKICAgICBpZD0icGF0aDE0NzQiCiAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiIgLz4KPC9zdmc+Cg==" /></a></p>
+<p>BitArray for PHP.</p>
+<p>This project manipulates compact array of bit values stored internally as strings.</p>
+<p>The bit arrays may have variable length specified when an object is created using either:</p>
+<ul class="simple">
+<li><p>a specific size;</p></li>
+<li><p>a traversable collection;</p></li>
+<li><p>a string representation of bits;</p></li>
+<li><p>a json representation of bits;</p></li>
+<li><p>a slice from another bit array;</p></li>
+<li><p>a concatenation from two others bit arrays.</p></li>
+</ul>
+<p>The project provides methods to get and set bits values using PHP natural syntax as well as the iterator facility offered by the PHP <code class="docutils literal notranslate"><span class="pre">foreach</span></code> language construct.
+It also provides methods for bitwise logical operations between two bit arrays <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">xor</span></code> and the <code class="docutils literal notranslate"><span class="pre">not</span></code> operation.</p>
+<p>This project uses:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/squizlabs/php_codesniffer">PHP Code Sniffer</a> for checking PHP code style</p></li>
+<li><p><a class="reference external" href="http://phpunit.de/">PHPUnit</a> for unit test (100% covered)</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="reference external" href="https://www.doxygen.nl/">Doxygen</a> for the
+<a class="reference external" href="http://php-sorted-collections.readthedocs.io/en/latest/?badge=latest">documentation</a></p></li>
+</ul>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">¶</a></h2>
+<p>Using composer: either</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>composer<span class="w"> </span>create-project<span class="w"> </span>chdemko/bitarray:1.2.x-dev<span class="w"> </span>--dev<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bitarray
+</pre></div>
+</div>
+<p>or create a <code class="docutils literal notranslate"><span class="pre">composer.json</span></code> file containing</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;chdemko/bitarray&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.x-dev&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>composer<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">test.php</span></code> file containing</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">require</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">chdemko\BitArray\BitArray</span><span class="p">;</span>
+
+<span class="nv">$bits</span> <span class="o">=</span> <span class="nx">BitArray</span><span class="o">::</span><span class="na">fromTraversable</span><span class="p">([</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">true</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$bits</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This should print</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">1001</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="https://github.com/chdemko/php-bitarray/tree/master/examples">examples</a> folder for more information.</p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h2>
+<p>Run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>doxygen<span class="w"> </span>python3-pip<span class="w"> </span>python3-virtualenv
+$<span class="w"> </span>virtualenv<span class="w"> </span>venv
+$<span class="w"> </span>venv/bin/activate
+<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
+<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs/<span class="w"> </span>html/
+<span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>deactivate
+$
+</pre></div>
+</div>
+<p>if you want to create local documentation with Sphinx.</p>
+</section>
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading">¶</a></h2>
+<p>If you are using this project including publication in research activities, you have to cite it using (<a class="reference external" href="https://raw.github.com/chdemko/php-bitarray/develop/cite.bib">BibTeX format</a>). You are also pleased to send me an email to chdemko&#64;gmail.com.</p>
+<ul class="simple">
+<li><p>authors: Christophe Demko</p></li>
+<li><p>title: php-bitarray: a PHP library for handling bit arrays</p></li>
+<li><p>year: 2014</p></li>
+<li><p>how published: https://packagist.org/packages/chdemko/bitarray/</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PHP BitArray documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ch. Demko.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

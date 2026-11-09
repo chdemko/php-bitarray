@@ -1,0 +1,4 @@
+open dta/gri-01.dat
+read columns x y
+draw curve
+draw title "http://gri.sf.net"

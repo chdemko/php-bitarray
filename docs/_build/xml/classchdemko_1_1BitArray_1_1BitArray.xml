@@ -1,0 +1,1331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classchdemko_1_1BitArray_1_1BitArray" kind="class" language="PHP" prot="public">
+    <compoundname>chdemko::BitArray::BitArray</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ArrayAccess</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Countable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">IteratorAggregate</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">JsonSerializable</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classchdemko_1_1BitArray_1_1BitArray_1a91239a1373fc77fb6c5ee5d0670f3cd6" prot="private" static="yes" mutable="no">
+        <type>static</type>
+        <definition>chdemko\BitArray\BitArray::$count</definition>
+        <argsstring></argsstring>
+        <name>$count</name>
+        <initializer>= array(
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8
+    )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="32" column="20" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classchdemko_1_1BitArray_1_1BitArray_1a36472dc3ac170a1bf8f916e9cf2c78cc" prot="private" static="yes" mutable="no">
+        <type>static</type>
+        <definition>chdemko\BitArray\BitArray::$restrict</definition>
+        <argsstring></argsstring>
+        <name>$restrict</name>
+        <initializer>= array(255, 1, 3, 7, 15, 31, 63, 127)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="54" column="20" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classchdemko_1_1BitArray_1_1BitArray_1a7aac3bd8f65c6b959cbf232aa3f33ae0" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::$data</definition>
+        <argsstring></argsstring>
+        <name>$data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="61" column="13" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classchdemko_1_1BitArray_1_1BitArray_1a074f7a06ceb34018b41ded090aafa54b" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::$size</definition>
+        <argsstring></argsstring>
+        <name>$size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="68" column="13" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1aa2be80e27cf0a9f2f4403e88a2bf478c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::__construct</definition>
+        <argsstring>($size=0, $default=false)</argsstring>
+        <name>__construct</name>
+        <param>
+          <declname>$size</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$default</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new bit array of the given size</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> size </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>boolean</parametertype>
+<parametername>$default</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value for bits</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="78" column="24" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="78" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a1b6381f3d74fa1f1d002ec9c16b9e7ac" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::restrict</definition>
+        <argsstring>()</argsstring>
+        <name>restrict</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove useless bits for simplifying count operation.</para>
+<para><simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> $this for chaining</para>
+</simplesect>
+<simplesect kind="since"><para>1.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="97" column="24" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="97" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ac2237bb817ebfb63439bccd253c1b698" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::getRealOffset</definition>
+        <argsstring>($offset)</argsstring>
+        <name>getRealOffset</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the real offset using a positive or negative offset</para>
+<para><itemizedlist>
+<listitem><para>If offset is non-negative, the offset parameter is used as it is, keeping its real value between 0 and size-1.</para>
+</listitem><listitem><para>if offset is negative, the offset parameter starts from the end, keeping its real value between 0 and size-1.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>integer The real offset</para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="396" column="24" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="396" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a1b001bcc599e143208945bf2222f72bb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::getRealSize</definition>
+        <argsstring>($offset, $size)</argsstring>
+        <name>getRealSize</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <param>
+          <declname>$size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the real offset using a positive or negative offset</para>
+<para><itemizedlist>
+<listitem><para>if size is given and is positive, then the real size will be between 0 and the current size-1.</para>
+</listitem><listitem><para>if size is given and is negative, then the real size starts from the end.</para>
+</listitem><listitem><para>if size is omitted, then the size goes until the end of the <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref>.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The real offset. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>mixed</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>integer The real size</para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="428" column="24" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="428" bodyend="447"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a7f2275536137e9176a43537e6dc5ba1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::__clone</definition>
+        <argsstring>()</argsstring>
+        <name>__clone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clone a <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+<para><simplesect kind="return"><para>void</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="115" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ad0e01aa0a66e598084848a386cfedfe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::__toString</definition>
+        <argsstring>()</argsstring>
+        <name>__toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert the object to a string</para>
+<para><simplesect kind="return"><para>string String representation of this object</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="127" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="127" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a16c00fecca09bbfde2957c662bc9a7eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::__get</definition>
+        <argsstring>($property)</argsstring>
+        <name>__get</name>
+        <param>
+          <declname>$property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Magic get method</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>string</parametertype>
+<parametername>$property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The property</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>RuntimeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the property does not exist</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>mixed The value associated to the property</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="151" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="151" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ad5de44134bcb9a8349782181ea2e2c21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::offsetExists</definition>
+        <argsstring>($offset)</argsstring>
+        <name>offsetExists</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test the existence of an index</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean The truth value</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="172" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a773929cf0a3a3f68c6c522596a43d7e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::offsetGet</definition>
+        <argsstring>($offset)</argsstring>
+        <name>offsetGet</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the truth value for an index</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean The truth value</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OutOfRangeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index must be an positive integer lesser than the size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="188" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="188" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a13b1f853c3238cfc2cd300bd92e6be34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::offsetSet</definition>
+        <argsstring>($offset, $value)</argsstring>
+        <name>offsetSet</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <param>
+          <declname>$value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the truth value for an index</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>boolean</parametertype>
+<parametername>$value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The truth value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OutOfRangeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index must be an positive integer lesser than the size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="209" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="209" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a7f2a0c50918ab5b4d236af5c020f4c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::offsetUnset</definition>
+        <argsstring>($offset)</argsstring>
+        <name>offsetUnset</name>
+        <param>
+          <declname>$offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unset the existence of an index</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>RuntimeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Values cannot be unset</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="235" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a8cb9963290f5a5bd37e2362f5f2b46d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::count</definition>
+        <argsstring>()</argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the number of true bits</para>
+<para><simplesect kind="return"><para>integer The number of true bits</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="247" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="247" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ae75a89643d09fa0e1190424708607351" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::toArray</definition>
+        <argsstring>()</argsstring>
+        <name>toArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transform the object to an array</para>
+<para><simplesect kind="return"><para>array Array of values</para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="265" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="265" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a79289326d7b5f32f6b180cdba901983b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::jsonSerialize</definition>
+        <argsstring>()</argsstring>
+        <name>jsonSerialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serialize the object</para>
+<para><simplesect kind="return"><para>array Array of values</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="283" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1adfd73b9089ce90a1e9e52ef8196fe67c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::getIterator</definition>
+        <argsstring>()</argsstring>
+        <name>getIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get an iterator</para>
+<para><simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1Iterator" kindref="compound">Iterator</ref> <ref refid="classchdemko_1_1BitArray_1_1Iterator" kindref="compound">Iterator</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="295" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="295" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ad77eb8c2063d99be77dc9d75ba86af26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the size</para>
+<para><simplesect kind="return"><para>integer The size</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="307" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="307" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ad83b94ada1dc6ecfb7e32f045d6bc8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::directCopy</definition>
+        <argsstring>(BitArray $bits, $index=0, $offset=0, $size=0)</argsstring>
+        <name>directCopy</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <param>
+          <declname>$index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$offset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy bits directly from a <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> to copy </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting index for destination </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting index for copying </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Copy size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>OutOfRangeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index must be an positive integer lesser than the size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="326" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="326" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a6b1f66917995ccd734d7aa20d322c3d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::copy</definition>
+        <argsstring>(BitArray $bits, $index=0, $offset=0, $size=null)</argsstring>
+        <name>copy</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <param>
+          <declname>$index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$offset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$size</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy bits from a <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+<para><itemizedlist>
+<listitem><para>if index is non-negative, the index parameter is used as it is, keeping its real value between 0 and size-1;</para>
+</listitem><listitem><para>if index is negative, the index parameter starts from the end, keeping its real value between 0 and size-1.</para>
+</listitem><listitem><para>if offset is non-negative, the offset parameter is used as it is, keeping its positive value between 0 and size-1;</para>
+</listitem><listitem><para>if offset is negative, the offset parameter starts from the end, keeping its real value between 0 and size-1.</para>
+</listitem><listitem><para>if size is given and is positive, then the copy will copy size elements.</para>
+</listitem><listitem><para>if the bits argument is shorter than the size, then only the available elements will be copied.</para>
+</listitem><listitem><para>if size is given and is negative, then the copy starts from the end.</para>
+</listitem><listitem><para>if size is omitted, then the copy will have everything from offset up until the end of the bits argument.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> to copy </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting index for destination. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting index for copying. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>mixed</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Copy size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="369" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="369" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a5d09e9fb4f68b6aaac89cd4e0d94b0f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::applyComplement</definition>
+        <argsstring>()</argsstring>
+        <name>applyComplement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Complement the bit array</para>
+<para><simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="634" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="634" bodyend="643"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a6a1990840296db12ec5b504625a39e84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::applyOr</definition>
+        <argsstring>(BitArray $bits)</argsstring>
+        <name>applyOr</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Or with an another bit array</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bit array</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>InvalidArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument must be of equal size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="656" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="656" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1ae95afbad30cd6afbb59366811e52eac6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::applyAnd</definition>
+        <argsstring>(BitArray $bits)</argsstring>
+        <name>applyAnd</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>And with an another bit array</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bit array</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>InvalidArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument must be of equal size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="682" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="682" bodyend="695"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a9f208a903fbbd9451e01e6b39baac6d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::applyXor</definition>
+        <argsstring>(BitArray $bits)</argsstring>
+        <name>applyXor</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Xor with an another bit array</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bit array</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> This object for chaining</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>InvalidArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument must be of equal size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="708" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="708" bodyend="721"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1af0c2092372f1005037a8aabe42e24e56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>chdemko\BitArray\BitArray::shift</definition>
+        <argsstring>($size=1, $value=false)</argsstring>
+        <name>shift</name>
+        <param>
+          <declname>$size</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <declname>$value</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Shift a bit array.</para>
+<para>Negative value means the shifting is done right to left while positive value means the shifting is done left to right.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size to shift.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>boolean</parametertype>
+<parametername>$value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to shift</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> $this for chaining</para>
+</simplesect>
+<simplesect kind="since"><para>1.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="737" column="21" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="737" bodyend="764"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a063c22d713e67e8720be9f08a9d70721" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromInteger</definition>
+        <argsstring>($size, $default=false)</argsstring>
+        <name>fromInteger</name>
+        <param>
+          <declname>$size</declname>
+        </param>
+        <param>
+          <declname>$default</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> from an integer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>boolean</parametertype>
+<parametername>$default</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value for bits</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="459" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="459" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a2032ff8071f59e14c3110a36ea66e476" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromDecimal</definition>
+        <argsstring>($size, $values=0)</argsstring>
+        <name>fromDecimal</name>
+        <param>
+          <declname>$size</declname>
+        </param>
+        <param>
+          <declname>$values</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> from a sequence of bits.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>integer</parametertype>
+<parametername>$values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The values for the bits</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="474" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="474" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1aaa3e10df4a4f2c8fb0bf82164f11d4c3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromTraversable</definition>
+        <argsstring>($traversable)</argsstring>
+        <name>fromTraversable</name>
+        <param>
+          <declname>$traversable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> from a traversable</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>mixed</parametertype>
+<parametername>$traversable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A traversable and countable</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="505" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="505" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1acd1cd7eb49a4e62102f0592bd30f5f88" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromString</definition>
+        <argsstring>($string)</argsstring>
+        <name>fromString</name>
+        <param>
+          <declname>$string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> from a bit string</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>string</parametertype>
+<parametername>$string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bit string</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="540" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="540" bodyend="561"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a7136a1367b139160c987897ad5810bcd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromJson</definition>
+        <argsstring>($json)</argsstring>
+        <name>fromJson</name>
+        <param>
+          <declname>$json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> from json</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype>string</parametertype>
+<parametername>$json</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A json encoded value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="572" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="572" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a318d742f25534f84e6b8d38365af7f8a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromSlice</definition>
+        <argsstring>(BitArray $bits, $offset=0, $size=null)</argsstring>
+        <name>fromSlice</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits</declname>
+        </param>
+        <param>
+          <declname>$offset</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <declname>$size</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> using a slice</para>
+<para><itemizedlist>
+<listitem><para>if offset is non-negative, the slice will start at that offset in the bits argument.</para>
+</listitem><listitem><para>if offset is negative, the slice will start from the end of the bits argument.</para>
+</listitem><listitem><para>if size is given and is positive, then the slice will have up to that many elements in it.</para>
+</listitem><listitem><para>if the bits argument is shorter than the size, then only the available elements will be present.</para>
+</listitem><listitem><para>if size is given and is negative, then the slice will stop that many elements from the end of the bits argument.</para>
+</listitem><listitem><para>if size is omitted, then the slice will have everything from offset up until the end of the bits argument.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> to get the slice </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>int</parametertype>
+<parametername>$offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype>mixed</parametertype>
+<parametername>$size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="598" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="598" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="classchdemko_1_1BitArray_1_1BitArray_1a7b91a762d35d55d6f219cf8d66846bee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static chdemko\BitArray\BitArray::fromConcat</definition>
+        <argsstring>(BitArray $bits1, BitArray $bits2)</argsstring>
+        <name>fromConcat</name>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits1</declname>
+        </param>
+        <param>
+          <type><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></type>
+          <declname>$bits2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> using the concat operation</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametertype><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></parametertype>
+<parametername>$bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref> A new <ref refid="classchdemko_1_1BitArray_1_1BitArray" kindref="compound">BitArray</ref></para>
+</simplesect>
+<simplesect kind="since"><para>1.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="617" column="28" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="617" bodyend="625"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ArrayAccess</label>
+      </node>
+      <node id="4">
+        <label>IteratorAggregate</label>
+      </node>
+      <node id="5">
+        <label>JsonSerializable</label>
+      </node>
+      <node id="3">
+        <label>Countable</label>
+      </node>
+      <node id="1">
+        <label>chdemko\BitArray\BitArray</label>
+        <link refid="classchdemko_1_1BitArray_1_1BitArray"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ArrayAccess</label>
+      </node>
+      <node id="4">
+        <label>IteratorAggregate</label>
+      </node>
+      <node id="5">
+        <label>JsonSerializable</label>
+      </node>
+      <node id="3">
+        <label>Countable</label>
+      </node>
+      <node id="1">
+        <label>chdemko\BitArray\BitArray</label>
+        <link refid="classchdemko_1_1BitArray_1_1BitArray"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" line="27" column="1" bodyfile="/home/chdemko/Documents/Code/php/php-bitarray/src/BitArray/BitArray.php" bodystart="28" bodyend="765"/>
+    <listofallmembers>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a91239a1373fc77fb6c5ee5d0670f3cd6" prot="private" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>$count</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a7aac3bd8f65c6b959cbf232aa3f33ae0" prot="private" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>$data</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a36472dc3ac170a1bf8f916e9cf2c78cc" prot="private" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>$restrict</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a074f7a06ceb34018b41ded090aafa54b" prot="private" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>$size</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a7f2275536137e9176a43537e6dc5ba1b" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>__clone</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1aa2be80e27cf0a9f2f4403e88a2bf478c" prot="protected" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>__construct</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a16c00fecca09bbfde2957c662bc9a7eb" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>__get</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ad0e01aa0a66e598084848a386cfedfe8" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>__toString</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ae95afbad30cd6afbb59366811e52eac6" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>applyAnd</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a5d09e9fb4f68b6aaac89cd4e0d94b0f6" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>applyComplement</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a6a1990840296db12ec5b504625a39e84" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>applyOr</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a9f208a903fbbd9451e01e6b39baac6d6" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>applyXor</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a6b1f66917995ccd734d7aa20d322c3d1" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>copy</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a8cb9963290f5a5bd37e2362f5f2b46d0" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>count</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ad83b94ada1dc6ecfb7e32f045d6bc8a6" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>directCopy</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a7b91a762d35d55d6f219cf8d66846bee" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromConcat</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a2032ff8071f59e14c3110a36ea66e476" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromDecimal</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a063c22d713e67e8720be9f08a9d70721" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromInteger</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a7136a1367b139160c987897ad5810bcd" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromJson</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a318d742f25534f84e6b8d38365af7f8a" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromSlice</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1acd1cd7eb49a4e62102f0592bd30f5f88" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromString</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1aaa3e10df4a4f2c8fb0bf82164f11d4c3" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>fromTraversable</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1adfd73b9089ce90a1e9e52ef8196fe67c" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>getIterator</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ac2237bb817ebfb63439bccd253c1b698" prot="protected" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>getRealOffset</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a1b001bcc599e143208945bf2222f72bb" prot="protected" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>getRealSize</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a79289326d7b5f32f6b180cdba901983b" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>jsonSerialize</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ad5de44134bcb9a8349782181ea2e2c21" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>offsetExists</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a773929cf0a3a3f68c6c522596a43d7e7" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>offsetGet</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a13b1f853c3238cfc2cd300bd92e6be34" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>offsetSet</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a7f2a0c50918ab5b4d236af5c020f4c52" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>offsetUnset</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1a1b6381f3d74fa1f1d002ec9c16b9e7ac" prot="protected" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>restrict</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1af0c2092372f1005037a8aabe42e24e56" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>shift</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ad77eb8c2063d99be77dc9d75ba86af26" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>size</name></member>
+      <member refid="classchdemko_1_1BitArray_1_1BitArray_1ae75a89643d09fa0e1190424708607351" prot="public" virt="non-virtual"><scope>chdemko::BitArray::BitArray</scope><name>toArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

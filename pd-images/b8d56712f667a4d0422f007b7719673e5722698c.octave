@@ -1,0 +1,13 @@
+outname = argv(){1}
+figure(1, 'visible', 'off');
+
+x = 0:0.1:2*pi;
+y = 0:0.1:2*pi;
+z = sin(x)' * sin(y);
+mesh(x, y, z); 
+xlabel("x-axis");
+ylabel("y-axis");
+zlabel("z-axis");
+title("3-D waves");
+
+print(1, outname, '-dpng');
